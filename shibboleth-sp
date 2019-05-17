@@ -1,0 +1,824 @@
+#!/usr/bin/env bash
+
+# author: Allex Magno Andrade
+# describe: Container Shibboleth-SP v2.6.0
+# version: 0.1
+# license: MIT license
+
+clear
+
+echo "========================================================================="
+echo -e "				\033[01;34mGId\033[01;37mLab\033[00m"
+echo "	LABORATÓRIO PARA EXPERIMENTAÇÃO EM  GESTÃO DE IDENTIDADES		"
+echo "========================================================================="
+
+
+function ctrl_c {
+	echo -e "\n\033[01;31mVocê digitou CTRL C.\033[00;37m\nAs informações serão perdidas"
+	echo ""
+	echo  "Deseja realmente cancelar a instalação?"
+	decisao
+	if [ "$?" == 1 ]; then
+		exit
+	else
+		for i in 0 1 2 3 4 5 6 7; do
+			tput cuu1; tput dl1
+		done
+		echo -n ">> "
+	fi
+}
+function decisao(){
+	sleep 0.05
+	echo -e "(\033[01ms\033[00m)	SIM\n(\033[01mENTER\033[00m)	NÃO"
+	while [ true ]; do
+		read -p ">> " decisao
+		case $decisao in
+			s) return 1;;
+			"") return 0;;	
+			*) echo -e " \033[01;31mDigite apenas s ou Enter\033[00m";;
+		esac
+	done
+}
+function confirmar(){
+	echo -e "Você digitou: \033[01;33m$1\033[01;37m\nDesejesa alterar?\033[00m"
+}
+function validar(){
+	if [ -z "$1" ]; then
+		echo -e "\033[01;31m*Campo Obrigatório!\033[00m"
+		return 0
+	else
+		return 1
+	fi
+}
+function conf_apache(){
+echo -e "\033[05;31mATENÇÃO!!!\n\033[00;31mOs certificados devem ser inseridos na pasta de instalação para prosseguir\033[00m"
+while [ true ]; do
+	echo "Nome do arquivo .cer ou .crt"
+	read -p ">> " _CER
+	validar $_CER
+	if [ "$?" == 1 ]; then
+		confirmar $_CER
+		decisao
+		if [ "$?" == 0 ]; then
+			break
+		fi
+	fi
+done
+while [ true ]; do
+	echo "Nome da chave \"KeyFile\" .key "
+	read -p ">> " _KEY
+	validar $_KEY
+	if [ "$?" == 1 ]; then
+		confirmar $_KEY
+		decisao
+		if [ "$?" == 0 ]; then
+			break
+		fi
+	fi
+done
+
+mv $_CER src/certs/
+mv $_KEY src/certs/
+_APACHE=1
+
+cat >src/apache2/shib.conf <<-EOF
+<IfModule mod_ssl.c>
+
+	<Directory /var/www/>
+	Require all granted
+	</Directory>
+
+	<VirtualHost *:80>
+		ServerName 	$1
+		Redirect / https://$1/
+	</VirtualHost>
+
+
+	<VirtualHost *:443>
+		ServerName 	$1
+		ServerSignature Off
+
+
+		SSLEngine               on
+
+		SSLCertificateFile /etc/ssl/certs/$_CER
+		SSLCertificateKeyFile /etc/ssl/private/$_KEY
+		#ShibURLScheme https
+
+		<Location /secure>
+			AuthType shibboleth
+			Require valid-user
+		</Location>
+
+
+		# Possible values include: debug, info, notice, warn, error, crit,
+		# alert, emerg.
+		LogLevel info
+		ErrorLog /var/log/apache2/error.log
+		CustomLog /var/log/apache2/sp-access-443.log combined
+
+#		ProxyPass /Shibboleth.sso !
+
+
+	</VirtualHost>
+</IfModule>
+EOF
+}
+function install_docker(){
+	curl -fsSl https://get.docker.com | bash
+	docker version
+	echo -e "\033[01;32m Docker latest instalado com sucesso!\033[00m"
+}
+
+_ex_host=$"host.rnp.br"
+_ex_dns=$"rnp.br"
+_ex_home=$"https://host.rnp.br/users"
+_DS="https://ds.cafeexpresso.rnp.br/WAYF.php"
+
+trap ctrl_c SIGINT
+
+echo -e "\n\n			\033[01;04;33mContainer Shibboleth SP\033[00;37m"
+
+echo ""
+echo -e "\033[31mPara sair precione CTRL C a qualquer momento\033[00m"
+echo ""
+
+echo "Deseja instalar o Docker?"
+decisao
+if [ "$?" -eq 1 ]; then
+	install_docker
+fi
+while [ true ]; do
+	echo  -e "Qual o nome do host?\nExemplo: $_ex_host"
+	read -p ">> " _HOST
+	validar $_HOST
+	if [ "$?" == 1 ]; then
+		confirmar $_HOST
+		decisao
+		if [ "$?" == 0 ]; then
+			break
+		fi
+	fi
+done
+while [ true ]; do
+	echo  -e "Qual o seu DNS?\nExemplo: $_ex_dns"
+	read -p ">> " _DNS
+	validar $_DNS
+	if [ "$?" == 1 ]; then
+		confirmar $_DNS
+		decisao
+		if [ "$?" == 0 ]; then
+			break
+		fi
+	fi
+done
+echo  -e "O endpoint para sua aplicação será \033[01;33m/secure\033[00m como mostrado abaixo:\n\033[33mhttps://$_HOST.$_DNS/secure\033[00m"
+echo 	"Deseja alterar?"
+decisao
+if [ "$?" == 1 ]; then
+	while [ true ]; do
+		echo "Digite o endpoint para sua aplicação"
+		read -p ">> " _ENDPOINT
+		validar $_ENDPOINT
+		if [ "$?" == 1 ]; then
+			_HOME="https://$_HOST.$_DNS/$_ENDPOINT"
+			echo -e "\033[33m$_HOME\033[00m"
+			confirmar $_ENDPOINT
+			decisao
+			if [ "$?" == 0 ]; then
+				break
+			fi
+		fi
+	done
+else
+	_HOME="https://${_HOST}.${_DNS}/secure"
+fi
+while [ true ]; do
+	echo  -e "O Descovery Service padrão é o WAYF CAFeexpresso, deseja alterar?"
+	decisao
+	if [ "$?" == 0 ];then
+		break
+	else
+		while [ true ]; do
+			echo  -e "Insira o link do DS?\nExemplo: $_DS"
+			read -p ">> " _DS
+			validar $_DS
+			if [ "$?" == 1 ]; then
+				confirmar $_DS
+				decisao
+				if [ "$?" == 0 ]; then
+					break
+				fi
+			fi
+		done
+		break
+	fi
+done
+echo "Montando..."
+mkdir src
+mkdir src/shibboleth
+touch src/shibboleth/shibboleth2.xml
+touch src/shibboleth/attribute-map.xml
+mkdir src/certs
+touch src/certs/certificado.cnf
+mkdir src/apache2
+touch src/apache2/shib.conf
+
+_HOSTDOMAIN="$_HOST.$_DNS"
+_ENTITYID="https://${_HOSTDOMAIN}/shibboleth"
+
+echo "Deseja configurar modo SSL no apache?"
+decisao
+if [ "$?" == 1 ]; then
+	conf_apache $_HOSTDOMAIN
+fi
+
+cat > src/shibboleth/shibboleth2.xml <<-EOF
+<SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"    
+    xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+    clockSkew="180">
+
+    <!--
+    By default, in-memory StorageService, ReplayCache, ArtifactMap, and SessionCache
+    are used. See example-shibboleth2.xml for samples of explicitly configuring them.
+    -->
+
+    <!--
+    To customize behavior for specific resources on Apache, and to link vhosts or
+    resources to ApplicationOverride settings below, use web server options/commands.
+    See https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfigurationElements for help.
+    
+    For examples with the RequestMap XML syntax instead, see the example-shibboleth2.xml
+    file, and the https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPRequestMapHowTo topic.
+    -->
+
+    <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
+    <ApplicationDefaults entityID="${_ENTITYID}"
+                         REMOTE_USER="eppn persistent-id targeted-id"
+                         homeURL="${_HOME}"
+                         cipherSuites="ECDHE+AESGCM:ECDHE:!aNULL:!eNULL:!LOW:!EXPORT:!RC4:!SHA:!SSLv2">
+
+        <!--
+        Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
+        You MUST supply an effectively unique handlerURL value for each of your applications.
+        The value defaults to /Shibboleth.sso, and should be a relative path, with the SP computing
+        a relative value based on the virtual host. Using handlerSSL="true", the default, will force
+        the protocol to be https. You should also set cookieProps to "https" for SSL-only sites.
+        Note that while we default checkAddress to "false", this has a negative impact on the
+        security of your site. Stealing sessions via cookie theft is much easier with this disabled.
+        -->
+        <Sessions lifetime="28800" timeout="3600" relayState="ss:mem"
+                  checkAddress="false" handlerSSL="false" cookieProps="http">
+
+            <!--
+            Configures SSO for a default IdP. To allow for >1 IdP, remove
+            entityID property and adjust discoveryURL to point to discovery service.
+            (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
+            You can also override entityID on /Login query string, or in RequestMap/htaccess.
+            -->
+            <SSO discoveryProtocol="SAMLDS" discoveryURL="${_DS}">
+              SAML2 SAML1
+            </SSO>
+
+            <!-- SAML and local-only logout. -->
+	    <Logout>SAML2 Local</Logout>
+
+	     <SessionInitiator type="Chaining" Location="/DS" id="DS" relayState="cookie">
+                <SessionInitiator type="SAML2" acsIndex="1" acsByIndex="false" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1" acsIndex="5"/>
+                <SessionInitiator type="SAMLDS" URL="${_DS}"/>
+            </SessionInitiator>
+
+            <md:AssertionConsumerService Location="/SAML2/POST" index="1"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+            <md:AssertionConsumerService Location="/SAML2/POST-SimpleSign" index="2"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"/>
+            <md:AssertionConsumerService Location="/SAML2/Artifact" index="3"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/>
+            <md:AssertionConsumerService Location="/SAML2/ECP" index="4"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"/>
+            <md:AssertionConsumerService Location="/SAML/POST" index="5"
+                Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"/>
+            <md:AssertionConsumerService Location="/SAML/Artifact" index="6"
+                Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"/>
+
+            <!-- Extension service that generates "approximate" metadata based on SP configuration. -->
+            <Handler type="MetadataGenerator" Location="/Metadata" signing="false"/>
+
+            <!-- Status reporting service. -->
+            <Handler type="Status" Location="/Status" acl="127.0.0.1 ::1"/>
+
+            <!-- Session diagnostic service. -->
+            <Handler type="Session" Location="/Session" showAttributeValues="false"/>
+
+            <!-- JSON feed of discovery information. -->
+            <Handler type="DiscoveryFeed" Location="/DiscoFeed"/>
+        </Sessions>
+
+        <!--
+        Allows overriding of error template information/filenames. You can
+        also add attributes with values that can be plugged into the templates.
+        -->
+        <Errors supportContact="atendimento@rnp.br"
+            helpLocation="/about.html"
+            styleSheet="/shibboleth-sp/main.css"/>
+        
+        <!-- Example of remotely supplied batch of signed metadata. -->
+	<MetadataProvider type="Chaining">
+		<MetadataProvider type="XML" validate="true"
+			uri="https://ds.cafeexpresso.rnp.br/metadata/ds-metadata.xml"
+			backingFilePath="/var/cache/shibboleth/ds-metadata.xml"
+			reloadInterval="7200"/>
+	</MetadataProvider>
+        <!--
+        <MetadataProvider type="XML" validate="true"
+	      uri="http://example.org/federation-metadata.xml"
+              backingFilePath="federation-metadata.xml" reloadInterval="7200">
+            <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
+            <MetadataFilter type="Signature" certificate="fedsigner.pem"/>
+            <DiscoveryFilter type="Blacklist" matcher="EntityAttributes" trimTags="true" 
+              attributeName="http://macedir.org/entity-category"
+              attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+              attributeValue="http://refeds.org/category/hide-from-discovery" />
+        </MetadataProvider>
+        -->
+
+        <!-- Example of locally maintained metadata. -->
+        <!--
+        <MetadataProvider type="XML" validate="true" file="partner-metadata.xml"/>
+        -->
+
+        <!-- Map to extract attributes from SAML assertions. -->
+        <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
+        
+        <!-- Use a SAML query if no attributes are supplied during SSO. -->
+        <AttributeResolver type="Query" subjectMatch="true"/>
+
+        <!-- Default filtering policy for recognized attributes, lets other data pass. -->
+        <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
+
+        <!-- Simple file-based resolver for using a single keypair. -->
+        <CredentialResolver type="File" key="sp-key.pem" certificate="sp-cert.pem"/>
+
+        <!--
+        The default settings can be overridden by creating ApplicationOverride elements (see
+        the https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPApplicationOverride topic).
+        Resource requests are mapped by web server commands, or the RequestMapper, to an
+        applicationId setting.
+        
+        Example of a second application (for a second vhost) that has a different entityID.
+        Resources on the vhost would map to an applicationId of "admin":
+        -->
+        <!--
+        <ApplicationOverride id="admin" entityID="https://admin.example.org/shibboleth"/>
+        -->
+    </ApplicationDefaults>
+    
+    <!-- Policies that determine how to process and authenticate runtime messages. -->
+    <SecurityPolicyProvider type="XML" validate="true" path="security-policy.xml"/>
+
+    <!-- Low-level configuration about protocols and bindings available for use. -->
+    <ProtocolProvider type="XML" validate="true" reloadChanges="false" path="protocols.xml"/>
+
+</SPConfig>
+EOF
+
+cat > src/certs/certificado.cnf <<-EOF
+[req]
+prompt=no
+default_bits=2048
+encrypt_key=no
+default_md=sha1
+distinguished_name=dn
+# PrintableStrings only
+string_mask=MASK:0002
+x509_extensions=ext
+
+default_keyfile=src/certs/sp-key.pem
+
+[dn]
+CN=${_HOSTDOMAIN}
+
+[ext]
+subjectAltName= DNS.1:${_HOSTDOMAIN} \\
+                URI.1:${_ENTITYID}
+subjectKeyIdentifier=hash
+EOF
+echo "Criando certificados"
+openssl req -new -x509 -config src/certs/certificado.cnf -text -out src/certs/sp-cert.pem -days 1096
+
+cat > src/shibboleth/attribute-map.xml <<-EOF
+<Attributes xmlns="urn:mace:shibboleth:2.0:attribute-map" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!--
+        SWITCHaai federation attribute map configuration file
+        Based on SWITCHaai Attribute Specification 1.6 from 2017-04-11
+        Last update: 2018-07-06
+
+        Earlier versions included the SAML1 attribute names in the
+        urn:mace namespace, this is no longer included in this version.
+        SAML2 attribute names use the urn:oid namespace only.
+    -->
+
+    <!--
+        Until version 2.5 the Shibboleth Service Provider supported the use
+        of attribute aliases that could be used to make an attribute available
+        under multiple names. However, this feature was deprecated in version
+        2.5. To use an alternative mechanism, please have a look at:
+
+        https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPAttributeResolver
+    -->
+
+    <!-- New standard identifier attributes for SAML. -->
+
+    <Attribute name="urn:oasis:names:tc:SAML:attribute:subject-id" id="subject-id">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <Attribute name="urn:oasis:names:tc:SAML:attribute:pairwise-id" id="pairwise-id">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+
+    <!-- Legacy pairwise identifier attribute / NameID format, intended to be replaced
+         by the simpler pairwise-id attribute.  -->
+
+    <!-- The eduPerson attribute version (eduPersonTargetedID, note the OID-style name): -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" id="persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+
+    <!-- SAML 2.0 NameID Format: -->
+    <Attribute name="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" id="persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+
+    <!-- The following list is structured like the 'SWITCHaai Attributes' web page:
+         https://www.switch.ch/aai/support/documents/attributes/ -->
+
+
+    <!-- Core attributes -->
+
+    <!-- mail -->
+    <Attribute name="urn:mace:dir:attribute-def:mail"
+               id="Shib-inetOrgPerson-mail"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3"
+               id="Shib-inetOrgPerson-mail"/>
+
+    <!-- cn -->
+    <Attribute name="urn:mace:dir:attribute-def:cn"
+               id="Shib-inetOrgPerson-cn"/>
+    <Attribute name="urn:oid:2.5.4.3"
+               id="Shib-inetOrgPerson-cn"/>
+
+    <!-- sn -->
+    <Attribute name="urn:mace:dir:attribute-def:sn"
+               id="Shib-inetOrgPerson-sn"/>
+    <Attribute name="urn:oid:2.5.4.4"
+               id="Shib-inetOrgPerson-sn"/>
+
+    <!-- Schema: brEduPerson -->
+    <!-- brEduAffiliationType -->
+    <Attribute name="urn:mace:rnp.br:attribute-def:brEduAffiliationType"
+               id="Shib-brEduPerson-brEduAffiliationType"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.15996.100.1.1.2.1"
+               id="Shib-brEduPerson-brEduAffiliationType"/>
+
+    <!-- Schema: eduPerson attributes -->
+    <!-- eppn - eduPersonPrincipalName -->
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrincipalName"
+               id="Shib-eduPerson-eduPersonPrincipalName">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder"/>
+    </Attribute>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6"
+               id="Shib-eduPerson-eduPersonPrincipalName">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder"/>
+    </Attribute>
+
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonAffiliation"
+               id="Shib-eduPerson-eduPersonAffiliation"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"
+               id="Shib-eduPerson-eduPersonAffiliation"/>
+
+
+    <!-- SWITCHaai Core Attributes -->
+
+    <!-- Affiliation -->
+    <!-- to maintain backwards compatibility in SWITCHaai, the id is
+         "affiliation" instead of "unscoped-affiliation" -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" id="affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- E-mail -->
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3" id="mail"/>
+
+    <!-- Given name -->
+    <Attribute name="urn:oid:2.5.4.42" id="givenName"/>
+
+    <!-- Home organization -->
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.4" id="homeOrganization">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- Home organization type -->
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.5" id="homeOrganizationType">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- Scoped affiliation -->
+    <!-- to maintain backwards compatibility in SWITCHaai, the id is
+         "scoped-affiliation" instead of "affiliation" -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" id="scoped-affiliation">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- Surname -->
+    <Attribute name="urn:oid:2.5.4.4" id="surname"/>
+
+    <!-- Targeted ID/Persistent ID -->
+    <!-- see above: Attribute Persistent ID (eduPersonTargetedID) -->
+
+    <!-- Unique ID -->
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1" id="uniqueID">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+
+    <!-- Interfederation Core Attributes -->
+
+    <!-- Common Name -->
+    <Attribute name="urn:oid:2.5.4.3" id="cn"/>
+
+    <!-- Display Name -->
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.241" id="displayName"/>
+
+    <!-- eduPerson Unique ID -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.13" id="eduPersonUniqueId">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- Principal name -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="principalName">
+         <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- SCHAC home organization -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.9" id="schacHomeOrganization">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- SCHAC home organisation type -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.10" id="schacHomeOrganizationType">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+
+ 
+
+    <!-- Local attributes -->
+
+    <!-- enble the attributes that your SP is able to handle -->
+
+    <!-- ASVZ Member -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1014" id="ASVZ"/>
+    -->
+
+    <!-- Fernuni Imap Password -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1024" id="fschImapPW"/>
+    -->
+
+    <!-- FFHS user type -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1022" id="UserType"/>
+    -->
+
+    <!-- FHNW Abrechnungskostenstelle -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1007" id="fhnwAbrKst"/>
+    -->
+
+    <!-- FHNW detailed affiliation -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1008" id="fhnwDetailedAffiliation"/>
+    -->
+
+    <!-- FHNW IDPerson (Evento) -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1009" id="fhnwIDPerson"/>
+    -->
+
+    <!-- FHNW Organisationseinheit aus Metadirectory -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1013" id="fhnwOeID"/>
+    -->
+
+    <!-- FHNW SAP additional user information -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1011" id="fhnwSapUserInfo"/>
+    -->
+
+    <!-- FHNW SAP UserID -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1010" id="fhnwSapUserID"/>
+    -->
+
+    <!-- FHNW user principal name (ActiveDirectory) -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1012" id="fhnwUPN"/>
+    -->
+
+    <!-- Primary group ID -->
+    <!--
+    <Attribute name="urn:oid:1.3.6.1.4.1.7165.2.1.15" id="primaryGroupID"/>
+    -->
+
+    <!-- SWITCH edu-ID Affiliation Profile -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1028" id="swissEduIDAffiliationProfile"/>
+    -->
+
+    <!-- SWITCH edu-ID Associated E-Mail -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.17" id="swissEduIDAssociatedMail"/>
+    -->
+
+    <!-- SWITCH edu-ID Assurance Level -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1027" id="swissEduIDAssuranceLevel"/>
+    -->
+
+    <!-- SWITCH edu-ID Linked Affiliation -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1029" id="swissEduIDLinkedAffiliation"/>
+    -->
+
+    <!-- SWITCH edu-ID Linked Affiliation Mail -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1031" id="swissEduIDLinkedAffiliationMail"/>
+    -->
+
+    <!-- SWITCH edu-ID Active User -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1026" id="swissEduIDUsage1y"/>
+    -->
+
+    <!-- Uni Basel personal public id -->
+    <!--
+    <Attribute name="urn:oid:1.3.6.1.4.1.22865.10.1.1.93" id="unibasChPublicId"/>
+    -->
+
+    <!-- Uni Basel specific roles -->
+    <!--
+    <Attribute name="urn:oid:1.3.6.1.4.1.22865.10.1.1.19" id="unibasChRoles"/>
+    -->
+
+    <!-- UniBE Authorization attribute -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1000" id="uniBEApplAuthorisation"/>
+    -->
+
+    <!-- UniGE Organization unit code -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1004" id="unigeOuCode"/>
+    -->
+
+    <!-- UniL faculte principale -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1006" id="unilFacultePrincipale"/>
+    -->
+
+    <!-- UniL group membership -->
+    <!--
+    <Attribute name="urn:oid:2.16.756.1.2.5.1.1.1003" id="unilMemberOf"/>
+    -->
+
+    <!-- UZH SAP staff user ID -->
+    <!--
+    <Attribute name="urn:oid:1.3.6.1.4.1.11817.1.1.2.27" id="uzhSAPUserIdStaff"/>
+    -->
+
+    <!-- UZH SAP user ID -->
+    <!--
+    <Attribute name="urn:oid:1.3.6.1.4.1.11817.1.1.2.13" id="uzhSAPUserId"/>
+    -->
+
+</Attributes>
+EOF
+
+touch servicos
+cat > servicos <<-EOF
+#!/usr/bin/env bash
+
+service shibd start
+exec apache2ctl -D FOREGROUND
+
+EOF
+chmod +x servicos
+
+echo "Criando Dockerfile"
+touch Dockerfile
+if [ $_APACHE -eq 1 ]; then
+cat > Dockerfile <<-EOF
+FROM debian:stable
+
+ENV LANG C.UTF-8
+
+RUN apt-get -qq -y update && \\
+    apt-get -qq -y install \\
+    apache2 \\
+    curl \\
+    vim \\
+    libapache2-mod-shib2  
+    
+RUN apt-get upgrade
+
+COPY ./src/certs/$_CER /etc/ssl/certs/
+
+COPY ./src/certs/$_KEY /etc/ssl/private/
+
+COPY ./src/apache2/shib.conf /etc/apache2/sites-available/
+
+RUN echo 'LoadModule mod_shib /etc/shibboleth//mod_shib_22.so' >>  /etc/apache2/httpd.conf
+RUN a2enmod ssl
+RUN a2ensite shib.conf
+
+COPY servicos /usr/local/sbin
+
+
+COPY ./src/certs/sp-cert.pem \\
+     ./src/certs/sp-key.pem \\
+     ./src/shibboleth/shibboleth2.xml \\
+     ./src/shibboleth/attribute-map.xml \\
+     /etc/shibboleth/
+
+RUN cd /etc/shibboleth && \\
+    chown _shibd sp-*.pem && \\
+    chmod go= sp-key.pem 
+
+ENTRYPOINT ["servicos"]
+
+EXPOSE 80
+EXPOSE 443
+EOF
+else
+
+cat > Dockerfile <<-EOF
+FROM debian:stable
+
+ENV LANG C.UTF-8
+
+RUN apt-get -qq -y update && \\
+    apt-get -qq -y install \\
+    apache2 \\
+    curl \\
+    vim \\
+    libapache2-mod-shib2  
+    
+RUN apt-get upgrade
+
+RUN echo 'LoadModule mod_shib /etc/shibboleth//mod_shib_22.so' >>  /etc/apache2/httpd.conf
+RUN a2ensite 000-default.conf
+
+COPY servicos /usr/local/sbin
+
+
+COPY ./src/certs/sp-cert.pem \\
+     ./src/certs/sp-key.pem \\
+     ./src/shibboleth/shibboleth2.xml \\
+     ./src/shibboleth/attribute-map.xml \\
+     /etc/shibboleth/
+
+RUN cd /etc/shibboleth && \\
+    chown _shibd sp-*.pem && \\
+    chmod go= sp-key.pem 
+
+ENTRYPOINT ["servicos"]
+
+EXPOSE 80
+EOF
+fi
+echo "Criando a imagem..."
+
+docker build -t shibboleth-sp .
+if [ $_APACHE -eq 1 ]; then
+
+	docker run -d -p 80:80 -p 443:443 --name=shib shibboleth-sp
+else
+	docker run -d -p 80:80 --name=shib shibboleth-sp
+fi
+
+echo "Processos sendo startados"
+sleep 5
+wget --no-check-certificate https://$_HOST.$_DNS/Shibboleth.sso/Metadata -O $_HOST.xml
+
+echo "###########################################################"
+echo "		Instalação concluída			 "
+echo "###########################################################"
+echo " Forneça o arquivo $_HOST.xml para o operador da federação "
+echo "###########################################################"
