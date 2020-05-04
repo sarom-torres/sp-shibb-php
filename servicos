@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+service shibd restart
+exec apache2ctl -D FOREGROUND
