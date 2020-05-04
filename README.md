@@ -11,7 +11,7 @@ Apache2
 
 * O script precisa ser executado apenas uma vez, em outras ocasiões deve-se utilizar os comando do docker.
 
-** Para todas as questões haverá um campo de confirmação. Para responder afirmativo, digite s e enter, ou para apenas enter para proseguir. **
+**Para todas as questões haverá um campo de confirmação. Para responder afirmativo, digite s e enter, ou para apenas enter para proseguir.**
 
 ## Instalação
 
@@ -19,7 +19,7 @@ Executar o script shibboleth-sp como root.
 
 git clone 
 
-```
+```Bash
 sudo ./shibboleth-sp
 
 ```
