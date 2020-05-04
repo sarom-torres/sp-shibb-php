@@ -79,7 +79,8 @@ Caso a resposta anterior seja sim:
 * Primeiro será necessário indicar o caminho do diretório onde o certificado se encontra.
 
 ```
-Caminho absoluto do certificado e chave\nExemplo: /etc/ssl/certs
+Caminho absoluto do certificado
+Exemplo: /etc/ssl/certs
 >>
 
 ```
@@ -87,7 +88,8 @@ Caminho absoluto do certificado e chave\nExemplo: /etc/ssl/certs
 E o nome do certificado:
 
 ```
-Nome do arquivo .cer ou .crt\nExemplo: certs/cert.crt
+Nome do arquivo .cer, .crt, .pem etc
+Exemplo: certs/cert.crt
 >> 
 
 ```
@@ -95,7 +97,8 @@ Nome do arquivo .cer ou .crt\nExemplo: certs/cert.crt
 * Igualmente para a chave, primeiro o caminho do diretório
 
 ```
-Caminho absoluto da chave\nExemplo: /etc/ssl/private
+Caminho absoluto da chave
+Exemplo: /etc/ssl/private
 >> 
 
 ```
@@ -103,7 +106,8 @@ Caminho absoluto da chave\nExemplo: /etc/ssl/private
 E o nome da chave:
 
 ```
-Nome da chave "KeyFile" .key\nExemplo: cert.key
+Nome da chave "KeyFile" .key
+Exemplo: cert.key
 >>
 
 ```

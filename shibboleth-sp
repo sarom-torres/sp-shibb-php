@@ -51,7 +51,7 @@ function validar(){
 }
 function conf_apache(){
 while [ true ]; do
-	echo "Caminho absoluto do certificado e chave\nExemplo: /etc/ssl/certs"
+	echo -e "Caminho absoluto do certificado\nExemplo: /etc/ssl/certs"
 	read -p ">> " _CERTPATH
 	validar $_CERTPATH
 	if [ "$?" == 1 ]; then
@@ -63,7 +63,7 @@ while [ true ]; do
 	fi
 done
 while [ true ]; do
-	echo "Nome do arquivo .cer ou .crt\nExemplo: certs/cert.crt"
+	echo -e "Nome do arquivo .cer, .crt, .pem etc\nExemplo: cert.crt"
 	read -p ">> " _CER
 	validar $_CER
 	if [ "$?" == 1 ]; then
@@ -75,7 +75,7 @@ while [ true ]; do
 	fi
 done
 while [ true ]; do
-	echo "Caminho absoluto da chave\nExemplo: /etc/ssl/private"
+	echo -e "Caminho absoluto da chave\nExemplo: /etc/ssl/private"
 	read -p ">> " _KEYPATH
 	validar $_KEYPATH
 	if [ "$?" == 1 ]; then
@@ -87,7 +87,7 @@ while [ true ]; do
 	fi
 done
 while [ true ]; do
-	echo "Nome da chave \"KeyFile\" .key\nExemplo: cert.key"
+	echo -e "Nome da chave \"KeyFile\" .key\nExemplo: cert.key"
 	read -p ">> " _KEY
 	validar $_KEY
 	if [ "$?" == 1 ]; then
@@ -120,7 +120,6 @@ if [ "$EUID" -ne 0 ]
   then echo "Execute como root"
   exit
 fi
-
 
 trap ctrl_c SIGINT
 
@@ -206,13 +205,27 @@ while [ true ]; do
 		fi
 	fi
 done
+while [ true ]; do
+	confirmar "
+	IP ou DNS: $_DNS
+	Informações para contato:
+ 	-Nome: $_GIVENNAME
+	-Sobrenome: $_SURNAME
+	-Email: $_SUPPORT
+	"
+	decisao
+	if [ "$?" == 0 ]; then
+		break
+	else
+		exit
+	fi
+done
 
 sed -i "s|supportPersonName|${_GIVENNAME}|g" ./src/shibboleth/shibboleth2.xml
 sed -i "s|testSurName|${_SURNAME}|g" ./src/shibboleth/shibboleth2.xml
 sed -i "s|supportmail|${_SUPPORT}|g" ./src/shibboleth/shibboleth2.xml
 
-echo "Montando..."
-touch ./src/shibboleth/certificado.cnf
+
 
 echo "Deseja configurar modo SSL no apache?"
 decisao
@@ -226,6 +239,8 @@ fi
 
 sed -i "s|shibServerEntityID|${_ENTITYID}|g" ./src/shibboleth/shibboleth2.xml
 
+echo "Montando certificado..."
+touch ./src/shibboleth/certificado.cnf
 cat > ./src/shibboleth/certificado.cnf <<-EOF
 [req]
 prompt=no

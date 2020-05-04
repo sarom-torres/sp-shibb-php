@@ -84,8 +84,12 @@
 		backingFilePath="/var/cache/shibboleth/ds-metadata.xml"
 	       	maxRefreshDelay="7200"/>
 
-        <!-- GIDLAB Dataverse documentation -->
-        <AttributeResolver type="Query" subjectMatch="true"/>
+	<!-- Map to extract attributes from SAML assertions. -->
+         <AttributeExtractor type="XML"
+                            validate="true"
+                            reloadChanges="false"
+                            path="attribute-map.xml"/>
+
         <!-- Default filtering policy for recognized attributes, lets other data pass. -->
         <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
 
