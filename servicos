@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 
+rm -f /etc/localtime && ln -s /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
+
+#sed -i  "s|SP_SERVERNAME|$SP_SERVERNAME|g" /volume/shib_ssl.conf
+#sed -i	"s|SP_SERVERNAME|$SP_SERVERNAME|g" /etc/shibboleth/shibboleth2.xml 
+#sed -i	"s|SP_SUPPORT_GN|$SP_SUPPORT_GN|g" /etc/shibboleth/shibboleth2.xml 
+#sed -i	"s|SP_SUPPORT_SN|$SP_SUPPORT_SN|g" /etc/shibboleth/shibboleth2.xml 
+#sed -i	"s|SP_SUPPORT_email|$SP_SUPPORT_email|g" /etc/shibboleth/shibboleth2.xml 
 service shibd restart
 exec apache2ctl -D FOREGROUND
