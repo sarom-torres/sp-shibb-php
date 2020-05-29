@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 rm -f /etc/localtime && ln -s /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
-
-sed -i  "s|SP_SERVERNAME|$SP_SERVERNAME|g" /etc/apache2/sites-available/shib_ssl.conf
-sed -i	"s|SP_SERVERNAME|$SP_SERVERNAME|g" /etc/shibboleth/shibboleth2.xml 
-sed -i	"s|SP_SUPPORT_GN|$SP_SUPPORT_GN|g" /etc/shibboleth/shibboleth2.xml 
-sed -i	"s|SP_SUPPORT_SN|$SP_SUPPORT_SN|g" /etc/shibboleth/shibboleth2.xml 
-sed -i	"s|SP_SUPPORT_EMAIL|$SP_SUPPORT_EMAIL|g" /etc/shibboleth/shibboleth2.xml 
+shib-keygen -f -u _shibd -h $SERVICE_DNS -y 3 -e https://$SERVICE_DNS/shibboleth -o /etc/shibboleth
+#chmod 644 /etc/shibboleth/sp-key.pem /etc/shibboleth/sp-cert.pem
 service shibd restart
 exec apache2ctl -D FOREGROUND

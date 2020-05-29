@@ -13,8 +13,8 @@
     -->
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
-    <ApplicationDefaults entityID="https://SP_SERVERNAME/shibboleth"
-	    homeURL="https://SP_SERVERNAME/secure" 
+    <ApplicationDefaults entityID="https://sp-example.rnp.br/shibboleth"
+	    homeURL="https://sp-example.rnp.br/secure" 
         REMOTE_USER="eppn"
         >
         <!-- Extracts support information for IdP from its metadata. -->
@@ -39,7 +39,7 @@
                 <md:AttributeConsumingService index="1"
                     xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
                     xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
-		    <md:ServiceName xml:lang="en">SP_SERVERNAME</md:ServiceName>
+		    <md:ServiceName xml:lang="en">sp-example.rnp.br</md:ServiceName>
                   <md:RequestedAttribute isRequired="true"
                       NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
                       Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6"
