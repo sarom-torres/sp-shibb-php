@@ -5,8 +5,6 @@ Apache2.4.38
 
 ### Avisos
 
-É necessário gerar o certificado para assinar os metadados. Edite o arquivo cert.cnf em ```./src/shibboleth/```
-
 Edite os parâmetros do arquivo ```.env```
 
 

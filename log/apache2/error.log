@@ -35,3 +35,5 @@
 [Fri May 29 15:21:21.214918 2020] [ssl:info] [pid 66:tid 139956269855872] AH02568: Certificate and private key sp-example.rnp.br:443:0 configured from /etc/ssl/certs/self-signed.crt and /etc/ssl/certs/self-signed.key
 [Fri May 29 15:21:21.219789 2020] [mpm_event:notice] [pid 66:tid 139956269855872] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
 [Fri May 29 15:21:21.219815 2020] [core:notice] [pid 66:tid 139956269855872] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri May 29 15:22:24.076687 2020] [ssl:info] [pid 68:tid 139956179261184] [client 172.17.0.1:57132] AH01964: Connection to child 64 established (server sp-example.rnp.br:443)
+[Fri May 29 15:22:24.189461 2020] [core:info] [pid 68:tid 139956170860288] [client 172.17.0.1:57132] AH00128: File does not exist: /var/www/html/favicon.ico
