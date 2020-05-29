@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
 rm -f /etc/localtime && ln -s /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
-shib-keygen -f -u _shibd -h $SERVICE_DNS -y 3 -e https://$SERVICE_DNS/shibboleth -o /etc/shibboleth
-#chmod 644 /etc/shibboleth/sp-key.pem /etc/shibboleth/sp-cert.pem
+shib-keygen -f -u _shibd -h $SERVICE_DNS -y 3 -e https://$SERVICE_DNS/shibboleth -o /etc/shibboleth /dev/null 2>&1
+
+if ! egrep "ServerName" /etc/apache2/apache2.conf > /dev/null 2>&1
+then
+        echo "ServerName $SERVICE_DNS" >> /etc/apache2/apache2.conf
+fi
+
 service shibd restart
 exec apache2ctl -D FOREGROUND
