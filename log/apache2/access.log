@@ -1,4 +1,0 @@
-191.191.54.131 - - [26/Jul/2021:19:47:56 -0300] "GET /Shibboleth.sso/Session HTTP/1.1" 200 451 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0"
-191.191.54.131 - - [26/Jul/2021:19:47:56 -0300] "GET /favicon.ico HTTP/1.1" 404 502 "http://dev.cafeexpresso.rnp.br/Shibboleth.sso/Session" "Mozilla/5.0 (X11; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0"
-209.141.41.98 - - [26/Jul/2021:20:32:17 -0300] "POST /boaform/admin/formLogin HTTP/1.1" 404 492 "http://200.130.99.97:80/admin/login.asp" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0"
-95.58.160.54 - - [26/Jul/2021:20:43:29 -0300] "GET / HTTP/1.1" 400 0 "-" "-"

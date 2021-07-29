@@ -1,4 +1,0 @@
-2021-07-26 19:46:53 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
-2021-07-26 19:46:53 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
-2021-07-26 19:46:53 WARN Shibboleth.Config : DEPRECATED: legacy 2.0 configuration, support will be removed from a future version of the software
-2021-07-26 19:46:53 WARN Shibboleth.Application : handlerSSL should be enabled for SSL/TLS-enabled web sites

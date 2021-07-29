@@ -1,168 +1,200 @@
 <Attributes xmlns="urn:mace:shibboleth:2.0:attribute-map" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <!--
-    The mappings are a mix of SAML 1.1 and SAML 2.0 attribute names agreed to within the Shibboleth
+                      The mappings are a mix of SAML 1.1 and SAML 2.0 attribute names agreed to within the Shibboleth
     community. The non-OID URNs are SAML 1.1 names and most of the OIDs are SAML 2.0 names, with a
     few exceptions for newer attributes where the name is the same for both versions. You will
     usually want to uncomment or map the names for both SAML versions as a unit.
     -->
-  
+
 
     <!-- New standard identifier attributes for SAML. -->
 
-    <Attribute name="urn:oasis:names:tc:SAML:attribute:subject-id" id="subject-id">
-        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
-    </Attribute>
-  
-    <Attribute name="urn:oasis:names:tc:SAML:attribute:pairwise-id" id="pairwise-id">
+    <Attribute name="urn:oasis:names:tc:SAML:attribute:subject-id" id="Shib-Attr-subject-id">
         <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
     </Attribute>
 
-    <!-- The most typical eduPerson attributes. -->
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="eppn">
+    <Attribute name="urn:oasis:names:tc:SAML:attribute:pairwise-id" id="Shib-Attr-pairwise-id">
         <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
     </Attribute>
 
+    <!-- Legacy pairwise identifier attribute / NameID format, intended to be replaced
+                     by the simpler pairwise-id attribute.  -->
 
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrincipalName" id="eppn">
-        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
-    </Attribute>
-
-  <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" id="affiliation">
-        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
-    </Attribute>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" id="affiliation">
-        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
-    </Attribute>
-
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" id="entitlement"/>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonEntitlement" id="entitlement"/>
-
-    <!--
-    Legacy pairwise identifier attribute / NameID format, intended to be replaced by the
-    simpler pairwise-id attribute (see top of file).
-    -->
-    
-    <!-- The eduPerson attribute version (note the OID-style name): -->
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" id="persistent-id">
-        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    <!-- The eduPerson attribute version (eduPersonTargetedID, note the OID-style name): --> 
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" id="Shib-Attr-persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" 
+			  formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
     </Attribute>
 
     <!-- The SAML 2.0 NameID Format: -->
-    <Attribute name="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" id="persistent-id">
-        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    <Attribute name="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" id="Shib-Attr-persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" 
+			  formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+
+
+    <!-- The most typical eduPerson attributes. -->
+    
+    <!-- ePPN - eduPersonPrincipalName -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="Shib-Attr-eppn">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrincipalName" id="Shib-Attr-eppn">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
     </Attribute>
     
+    <!-- ePSA - eduPersonScopedAffiliation -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" id="Shib-Attr-scoped-affiliation">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" id="Shib-Attr-scoped-affiliation">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+	
+    <!-- ePA - eduPersonAffiliation -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" id="Shib-Attr-unscoped-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonAffiliation" id="Shib-Attr-unscoped-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- brafftype - brEduAffiliationType -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.15996.100.1.1.2.1" id="Shib-Attr-braff"/>
+    <Attribute name="urn:mace:rnp.br:attribute-def:brEduAffiliationType" id="Shib-Attr-braff"/>
+
+    <!-- brCPF - brPersonCPF -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.15996.100.1.1.1.1" id="Shib-Attr-brCPF">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:brPersonCPF" id="Shib-Attr-brCPF">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <!-- ePE - eduPersonEntitlement -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" id="Shib-Attr-entitlement"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonEntitlement" id="Shib-Attr-entitlement"/>
+
     <!-- Other eduPerson attributes (SAML 2 names followed by SAML 1 names)... -->
     <!--
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" id="assurance"/>    
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.5.1.1" id="member"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.1" id="eduCourseOffering"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.2" id="eduCourseMember"/>
-
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" id="unscoped-affiliation">
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" id="Shib-Attr-assurance"/>    
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.5.1.1" id="Shib-Attr-member"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.1" id="Shib-Attr-eduCourseOffering"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.2" id="Shib-Attr-eduCourseMember"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" id="Shib-Attr-unscoped-affiliation">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" id="primary-affiliation">
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" id="Shib-Attr-primary-affiliation">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" id="nickname"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.8" id="primary-orgunit-dn"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" id="orgunit-dn"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" id="org-dn"/>
-
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonAffiliation" id="unscoped-affiliation">
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" id="Shib-Attr-nickname"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.8" id="Shib-Attr-primary-orgunit-dn"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" id="Shib-Attr-orgunit-dn"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" id="Shib-Attr-org-dn"/>
+    
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonAffiliation" id="Shib-Attr-unscoped-affiliation">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryAffiliation" id="primary-affiliation">
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryAffiliation" id="Shib-Attr-primary-affiliation">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonNickname" id="nickname"/>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryOrgUnitDN" id="primary-orgunit-dn"/>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgUnitDN" id="orgunit-dn"/>
-    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgDN" id="org-dn"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonNickname" id="Shib-Attr-nickname"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryOrgUnitDN" id="Shib-Attr-primary-orgunit-dn"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgUnitDN" id="Shib-Attr-orgunit-dn"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgDN" id="Shib-Attr-org-dn"/>
     -->
-    
-    <!-- Older LDAP-defined attributes (SAML 2.0 names followed by SAML 1 names)... -->
-    
-    <Attribute name="urn:oid:2.5.4.3" id="cn"/>
-    <Attribute name="urn:oid:2.5.4.4" id="sn"/>
-    <Attribute name="urn:oid:2.5.4.42" id="givenName"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.241" id="displayName"/>
-    <Attribute name="urn:oid:0.9.2342.19200300.100.1.1" id="uid"/>
-    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3" id="mail"/>
-    <Attribute name="urn:oid:2.5.4.20" id="telephoneNumber"/>
-    <Attribute name="urn:oid:2.5.4.12" id="title"/>
-    <Attribute name="urn:oid:2.5.4.43" id="initials"/>
-    <Attribute name="urn:oid:2.5.4.13" id="description"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.1" id="carLicense"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.2" id="departmentNumber"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.3" id="employeeNumber"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.4" id="employeeType"/>
-    <Attribute name="urn:oid:2.16.840.1.113730.3.1.39" id="preferredLanguage"/>
-    <Attribute name="urn:oid:0.9.2342.19200300.100.1.10" id="manager"/>
-    <Attribute name="urn:oid:2.5.4.34" id="seeAlso"/>
-    <Attribute name="urn:oid:2.5.4.23" id="facsimileTelephoneNumber"/>
-    <Attribute name="urn:oid:2.5.4.9" id="street"/>
-    <Attribute name="urn:oid:2.5.4.18" id="postOfficeBox"/>
-    <Attribute name="urn:oid:2.5.4.17" id="postalCode"/>
-    <Attribute name="urn:oid:2.5.4.8" id="st"/>
-    <Attribute name="urn:oid:2.5.4.7" id="l"/>
-    <Attribute name="urn:oid:2.5.4.10" id="o"/>
-    <Attribute name="urn:oid:2.5.4.11" id="ou"/>
-    <Attribute name="urn:oid:2.5.4.15" id="businessCategory"/>
-    <Attribute name="urn:oid:2.5.4.19" id="physicalDeliveryOfficeName"/>
 
-    <Attribute name="urn:mace:dir:attribute-def:cn" id="cn"/>
-    <Attribute name="urn:mace:dir:attribute-def:sn" id="sn"/>
-    <Attribute name="urn:mace:dir:attribute-def:givenName" id="givenName"/>
-    <Attribute name="urn:mace:dir:attribute-def:displayName" id="displayName"/>
-    <Attribute name="urn:mace:dir:attribute-def:uid" id="uid"/>
-    <Attribute name="urn:mace:dir:attribute-def:mail" id="mail"/>
-    <Attribute name="urn:mace:dir:attribute-def:telephoneNumber" id="telephoneNumber"/>
-    <Attribute name="urn:mace:dir:attribute-def:title" id="title"/>
-    <Attribute name="urn:mace:dir:attribute-def:initials" id="initials"/>
-    <Attribute name="urn:mace:dir:attribute-def:description" id="description"/>
-    <Attribute name="urn:mace:dir:attribute-def:carLicense" id="carLicense"/>
-    <Attribute name="urn:mace:dir:attribute-def:departmentNumber" id="departmentNumber"/>
-    <Attribute name="urn:mace:dir:attribute-def:employeeNumber" id="employeeNumber"/>
-    <Attribute name="urn:mace:dir:attribute-def:employeeType" id="employeeType"/>
-    <Attribute name="urn:mace:dir:attribute-def:preferredLanguage" id="preferredLanguage"/>
-    <Attribute name="urn:mace:dir:attribute-def:manager" id="manager"/>
-    <Attribute name="urn:mace:dir:attribute-def:seeAlso" id="seeAlso"/>
-    <Attribute name="urn:mace:dir:attribute-def:facsimileTelephoneNumber" id="facsimileTelephoneNumber"/>
-    <Attribute name="urn:mace:dir:attribute-def:street" id="street"/>
-    <Attribute name="urn:mace:dir:attribute-def:postOfficeBox" id="postOfficeBox"/>
-    <Attribute name="urn:mace:dir:attribute-def:postalCode" id="postalCode"/>
-    <Attribute name="urn:mace:dir:attribute-def:st" id="st"/>
-    <Attribute name="urn:mace:dir:attribute-def:l" id="l"/>
-    <Attribute name="urn:mace:dir:attribute-def:o" id="o"/>
-    <Attribute name="urn:mace:dir:attribute-def:ou" id="ou"/>
-    <Attribute name="urn:mace:dir:attribute-def:businessCategory" id="businessCategory"/>
-    <Attribute name="urn:mace:dir:attribute-def:physicalDeliveryOfficeName" id="physicalDeliveryOfficeName"/>
-   
+    <!-- Older LDAP-defined attributes (SAML 2.0 names followed by SAML 1 names)... -->
+
+    <Attribute name="urn:oid:2.5.4.3" id="Shib-Attr-cn"/>
+    <Attribute name="urn:oid:2.5.4.4" id="Shib-Attr-sn"/>
+    <Attribute name="urn:oid:2.5.4.42" id="Shib-Attr-givenName"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.241" id="Shib-Attr-displayName"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.1" id="Shib-Attr-uid"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3" id="Shib-Attr-mail"/>
+    <Attribute name="urn:oid:2.5.4.20" id="Shib-Attr-telephoneNumber"/>
+    <Attribute name="urn:oid:2.5.4.12" id="Shib-Attr-title"/>
+    <Attribute name="urn:oid:2.5.4.43" id="Shib-Attr-initials"/>
+    <Attribute name="urn:oid:2.5.4.13" id="Shib-Attr-description"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.1" id="Shib-Attr-carLicense"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.2" id="Shib-Attr-departmentNumber"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.3" id="Shib-Attr-employeeNumber"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.4" id="Shib-Attr-employeeType"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.39" id="Shib-Attr-preferredLanguage"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.10" id="Shib-Attr-manager"/>
+    <Attribute name="urn:oid:2.5.4.34" id="Shib-Attr-seeAlso"/>
+    <Attribute name="urn:oid:2.5.4.23" id="Shib-Attr-facsimileTelephoneNumber"/>
+    <Attribute name="urn:oid:2.5.4.9" id="Shib-Attr-street"/>
+    <Attribute name="urn:oid:2.5.4.18" id="Shib-Attr-postOfficeBox"/>
+    <Attribute name="urn:oid:2.5.4.17" id="Shib-Attr-postalCode"/>
+    <Attribute name="urn:oid:2.5.4.8" id="Shib-Attr-st"/>
+    <Attribute name="urn:oid:2.5.4.7" id="Shib-Attr-l"/>
+    <Attribute name="urn:oid:2.5.4.10" id="Shib-Attr-o"/>
+    <Attribute name="urn:oid:2.5.4.11" id="Shib-Attr-ou"/>
+    <Attribute name="urn:oid:2.5.4.15" id="Shib-Attr-businessCategory"/>
+    <Attribute name="urn:oid:2.5.4.19" id="Shib-Attr-physicalDeliveryOfficeName"/>
+
+    <Attribute name="urn:mace:dir:attribute-def:cn" id="Shib-Attr-cn"/>
+    <Attribute name="urn:mace:dir:attribute-def:sn" id="Shib-Attr-sn"/>
+    <Attribute name="urn:mace:dir:attribute-def:givenName" id="Shib-Attr-givenName"/>
+    <Attribute name="urn:mace:dir:attribute-def:displayName" id="Shib-Attr-displayName"/>
+    <Attribute name="urn:mace:dir:attribute-def:uid" id="Shib-Attr-uid"/>
+    <Attribute name="urn:mace:dir:attribute-def:mail" id="Shib-Attr-mail"/>
+    <Attribute name="urn:mace:dir:attribute-def:telephoneNumber" id="Shib-Attr-telephoneNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:title" id="Shib-Attr-title"/>
+    <Attribute name="urn:mace:dir:attribute-def:initials" id="Shib-Attr-initials"/>
+    <Attribute name="urn:mace:dir:attribute-def:description" id="Shib-Attr-description"/>
+    <Attribute name="urn:mace:dir:attribute-def:carLicense" id="Shib-Attr-carLicense"/>
+    <Attribute name="urn:mace:dir:attribute-def:departmentNumber" id="Shib-Attr-departmentNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:employeeNumber" id="Shib-Attr-employeeNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:employeeType" id="Shib-Attr-employeeType"/>
+    <Attribute name="urn:mace:dir:attribute-def:preferredLanguage" id="Shib-Attr-preferredLanguage"/>
+    <Attribute name="urn:mace:dir:attribute-def:manager" id="Shib-Attr-manager"/>
+    <Attribute name="urn:mace:dir:attribute-def:seeAlso" id="Shib-Attr-seeAlso"/>
+    <Attribute name="urn:mace:dir:attribute-def:facsimileTelephoneNumber" id="Shib-Attr-facsimileTelephoneNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:street" id="Shib-Attr-street"/>
+    <Attribute name="urn:mace:dir:attribute-def:postOfficeBox" id="Shib-Attr-postOfficeBox"/>
+    <Attribute name="urn:mace:dir:attribute-def:postalCode" id="Shib-Attr-postalCode"/>
+    <Attribute name="urn:mace:dir:attribute-def:st" id="Shib-Attr-st"/>
+    <Attribute name="urn:mace:dir:attribute-def:l" id="Shib-Attr-l"/>
+    <Attribute name="urn:mace:dir:attribute-def:o" id="Shib-Attr-o"/>
+    <Attribute name="urn:mace:dir:attribute-def:ou" id="Shib-Attr-ou"/>
+    <Attribute name="urn:mace:dir:attribute-def:businessCategory" id="Shib-Attr-businessCategory"/>
+    <Attribute name="urn:mace:dir:attribute-def:physicalDeliveryOfficeName" id="Shib-Attr-physicalDeliveryOfficeName"/>
+
 
     <!-- SCHAC attributes... -->
+    
+    <!-- date of Birth - shacDateOfBirth -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.1466.115.121.1.36" id="Shib-Attr-dateOfBirth">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:schacDateOfBirth" id="Shib-Attr-dateOfBirth">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+
     <!--
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.9" id="schacHomeOrganization">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.9" id="Shib-Attr-schacHomeOrganization">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.10" id="schacHomeOrganizationType">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.10" id="Shib-Attr-schacHomeOrganizationType">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.14" id="schacPersonalUniqueCode">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.14" id="Shib-Attr-schacPersonalUniqueCode">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.15" id="schacPersonalUniqueID"/>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.19" id="schacUserStatus">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.15" id="Shib-Attr-schacPersonalUniqueID"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.19" id="Shib-Attr-schacUserStatus">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.20" id="schacProjectMembership">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.20" id="Shib-Attr-schacProjectMembership">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
-    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.21" id="schacProjectSpecificRole">
+    <Attribute name="urn:oid:1.3.6.1.4.1.25178.1.2.21" id="Shib-Attr-schacProjectSpecificRole">
         <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
     </Attribute>
     -->
 
-</Attributes>
+</Attributes> 
