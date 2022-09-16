@@ -12,7 +12,8 @@ RUN curl --fail --remote-name \
     apt -qq -y install ./switchaai-apt-source_1.0.0_all.deb
 
 RUN apt -qq -y update && \
-    apt -qq -y install --install-recommends shibboleth
+    apt -qq -y install --install-recommends shibboleth && \
+    apt -qq -y install php-common libapache2-mod-php
  
 COPY servicos /usr/local/sbin/shib_entrypoint 
 

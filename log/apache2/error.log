@@ -1,0 +1,388 @@
+[Thu Sep 15 20:18:55.783544 2022] [ssl:info] [pid 78:tid 140383007859840] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:18:55.784106 2022] [ssl:warn] [pid 78:tid 140383007859840] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:18:55.784128 2022] [ssl:info] [pid 78:tid 140383007859840] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:18:55.798397 2022] [ssl:info] [pid 78:tid 140383007859840] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:18:55.798805 2022] [ssl:warn] [pid 78:tid 140383007859840] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:18:55.798828 2022] [ssl:info] [pid 78:tid 140383007859840] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:18:55.804716 2022] [mpm_event:notice] [pid 78:tid 140383007859840] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Thu Sep 15 20:18:55.804786 2022] [core:notice] [pid 78:tid 140383007859840] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Thu Sep 15 20:24:31.370001 2022] [ssl:info] [pid 79:tid 139647504950400] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:24:31.370538 2022] [ssl:warn] [pid 79:tid 139647504950400] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:24:31.370565 2022] [ssl:info] [pid 79:tid 139647504950400] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:24:31.384688 2022] [ssl:info] [pid 79:tid 139647504950400] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:24:31.385071 2022] [ssl:warn] [pid 79:tid 139647504950400] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:24:31.385092 2022] [ssl:info] [pid 79:tid 139647504950400] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:24:31.390914 2022] [mpm_event:notice] [pid 79:tid 139647504950400] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Thu Sep 15 20:24:31.390994 2022] [core:notice] [pid 79:tid 139647504950400] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Thu Sep 15 20:25:34.383939 2022] [ssl:info] [pid 80:tid 139647120283392] [client 172.17.0.1:38574] AH01964: Connection to child 11 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:34.391014 2022] [ssl:info] [pid 80:tid 139647120283392] [client 172.17.0.1:38574] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:34.391048 2022] [ssl:info] [pid 80:tid 139647120283392] SSL Library Error: error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown (SSL alert number 46)
+[Thu Sep 15 20:25:34.391055 2022] [ssl:info] [pid 80:tid 139647120283392] [client 172.17.0.1:38574] AH01998: Connection closed to child 11 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.340411 2022] [ssl:info] [pid 81:tid 139647417333504] [client 172.17.0.1:38576] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.344482 2022] [ssl:info] [pid 81:tid 139647417333504] [client 172.17.0.1:38576] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.344576 2022] [ssl:info] [pid 81:tid 139647417333504] SSL Library Error: error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown (SSL alert number 46)
+[Thu Sep 15 20:25:38.344598 2022] [ssl:info] [pid 81:tid 139647417333504] [client 172.17.0.1:38576] AH01998: Connection closed to child 64 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.346063 2022] [ssl:info] [pid 81:tid 139647061534464] [client 172.17.0.1:38578] AH01964: Connection to child 82 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.351008 2022] [mod_shib:error] [pid 81:tid 139647061534464] [client 172.17.0.1:38578] Unable to locate metadata for identity provider (https://idp.brainyit.com.br/idp/shibboleth)
+[Thu Sep 15 20:25:38.375579 2022] [ssl:info] [pid 81:tid 139646960920320] [client 172.17.0.1:38580] AH01964: Connection to child 85 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.377216 2022] [ssl:info] [pid 81:tid 139646960920320] [client 172.17.0.1:38580] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.377248 2022] [ssl:info] [pid 81:tid 139646960920320] SSL Library Error: error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown (SSL alert number 46)
+[Thu Sep 15 20:25:38.377454 2022] [ssl:info] [pid 81:tid 139646960920320] [client 172.17.0.1:38580] AH01998: Connection closed to child 85 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.378000 2022] [ssl:info] [pid 80:tid 139647400531712] [client 172.17.0.1:38582] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:25:38.409675 2022] [core:info] [pid 80:tid 139647036421888] [client 172.17.0.1:38582] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.sso/Login
+[Thu Sep 15 20:27:56.427444 2022] [ssl:info] [pid 80:tid 139647408932608] [client 172.17.0.1:38584] AH01964: Connection to child 1 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:27:56.431155 2022] [ssl:info] [pid 80:tid 139647408932608] [client 172.17.0.1:38584] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:27:56.431219 2022] [ssl:info] [pid 80:tid 139647408932608] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 20:27:56.431225 2022] [ssl:info] [pid 80:tid 139647408932608] [client 172.17.0.1:38584] AH01998: Connection closed to child 1 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:27:56.435198 2022] [ssl:info] [pid 80:tid 139647162246912] [client 172.17.0.1:38586] AH01964: Connection to child 6 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:27:56.445805 2022] [ssl:info] [pid 80:tid 139647162246912] [client 172.17.0.1:38586] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:27:56.445862 2022] [ssl:info] [pid 80:tid 139647162246912] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 20:27:56.445873 2022] [ssl:info] [pid 80:tid 139647162246912] [client 172.17.0.1:38586] AH01998: Connection closed to child 6 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:28:08.935363 2022] [ssl:info] [pid 81:tid 139646952527616] [client 172.17.0.1:38588] AH01964: Connection to child 86 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:28:08.939946 2022] [mod_shib:error] [pid 81:tid 139646952527616] [client 172.17.0.1:38588] Unable to locate metadata for identity provider (https://idp.brainyit.com.br/idp/shibboleth)
+[Thu Sep 15 20:28:08.988182 2022] [ssl:info] [pid 80:tid 139647153854208] [client 172.17.0.1:38590] AH01964: Connection to child 7 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:28:08.994310 2022] [core:info] [pid 80:tid 139647137068800] [client 172.17.0.1:38590] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.sso/Login
+[Thu Sep 15 20:42:31.590408 2022] [ssl:info] [pid 81:tid 139646935742208] [client 172.17.0.1:38592] AH01964: Connection to child 88 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.592005 2022] [ssl:info] [pid 81:tid 139646935742208] [client 172.17.0.1:38592] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.592036 2022] [ssl:info] [pid 81:tid 139646935742208] SSL Library Error: error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown (SSL alert number 46)
+[Thu Sep 15 20:42:31.592044 2022] [ssl:info] [pid 81:tid 139646935742208] [client 172.17.0.1:38592] AH01998: Connection closed to child 88 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.592594 2022] [ssl:info] [pid 81:tid 139647153854208] [client 172.17.0.1:38594] AH01964: Connection to child 71 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.595247 2022] [mod_shib:error] [pid 81:tid 139647153854208] [client 172.17.0.1:38594] Unable to locate metadata for identity provider (https://idp.brainyit.com.br/idp/shibboleth)
+[Thu Sep 15 20:42:31.617249 2022] [ssl:info] [pid 80:tid 139647028029184] [client 172.17.0.1:38596] AH01964: Connection to child 13 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.619004 2022] [ssl:info] [pid 80:tid 139647028029184] [client 172.17.0.1:38596] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.619094 2022] [ssl:info] [pid 80:tid 139647028029184] SSL Library Error: error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown (SSL alert number 46)
+[Thu Sep 15 20:42:31.619107 2022] [ssl:info] [pid 80:tid 139647028029184] [client 172.17.0.1:38596] AH01998: Connection closed to child 13 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:42:31.627651 2022] [ssl:info] [pid 81:tid 139647137068800] [client 172.17.0.1:38598] AH01964: Connection to child 73 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.538488 2022] [ssl:info] [pid 80:tid 139647145461504] [client 172.17.0.1:38600] AH01964: Connection to child 8 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.545519 2022] [ssl:info] [pid 80:tid 139647145461504] [client 172.17.0.1:38600] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.545568 2022] [ssl:info] [pid 80:tid 139647145461504] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 20:46:45.545576 2022] [ssl:info] [pid 80:tid 139647145461504] [client 172.17.0.1:38600] AH01998: Connection closed to child 8 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.547232 2022] [ssl:info] [pid 81:tid 139647170639616] [client 172.17.0.1:38602] AH01964: Connection to child 69 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.554444 2022] [ssl:info] [pid 81:tid 139647170639616] [client 172.17.0.1:38602] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:45.554627 2022] [ssl:info] [pid 81:tid 139647170639616] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 20:46:45.554648 2022] [ssl:info] [pid 81:tid 139647170639616] [client 172.17.0.1:38602] AH01998: Connection closed to child 69 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:51.965594 2022] [ssl:info] [pid 81:tid 139647120283392] [client 172.17.0.1:38606] AH01964: Connection to child 75 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:51.971303 2022] [mod_shib:error] [pid 81:tid 139647120283392] [client 172.17.0.1:38606] Unable to locate metadata for identity provider (https://idp.brainyit.com.br/idp/shibboleth)
+[Thu Sep 15 20:46:52.041357 2022] [ssl:info] [pid 81:tid 139647162246912] [client 172.17.0.1:38608] AH01964: Connection to child 70 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:46:52.075393 2022] [core:info] [pid 81:tid 139647086712576] [client 172.17.0.1:38608] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.sso/Login
+[Thu Sep 15 20:47:25.990407 2022] [mpm_event:notice] [pid 79:tid 139647504950400] AH00491: caught SIGTERM, shutting down
+[Thu Sep 15 20:53:09.569038 2022] [ssl:info] [pid 76:tid 140365854160000] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:53:09.569353 2022] [ssl:warn] [pid 76:tid 140365854160000] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:53:09.569365 2022] [ssl:info] [pid 76:tid 140365854160000] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:53:09.582275 2022] [ssl:info] [pid 76:tid 140365854160000] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:53:09.582691 2022] [ssl:warn] [pid 76:tid 140365854160000] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:53:09.582718 2022] [ssl:info] [pid 76:tid 140365854160000] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:53:09.587957 2022] [mpm_event:notice] [pid 76:tid 140365854160000] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Thu Sep 15 20:53:09.587991 2022] [core:notice] [pid 76:tid 140365854160000] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Thu Sep 15 20:54:33.888770 2022] [mpm_event:notice] [pid 76:tid 140365854160000] AH00492: caught SIGWINCH, shutting down gracefully
+[Thu Sep 15 20:56:22.997215 2022] [ssl:info] [pid 76:tid 140686671193216] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:56:22.998149 2022] [ssl:warn] [pid 76:tid 140686671193216] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:56:22.998184 2022] [ssl:info] [pid 76:tid 140686671193216] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:56:23.014149 2022] [ssl:info] [pid 76:tid 140686671193216] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 20:56:23.015035 2022] [ssl:warn] [pid 76:tid 140686671193216] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 20:56:23.015058 2022] [ssl:info] [pid 76:tid 140686671193216] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 20:56:23.020604 2022] [mpm_event:notice] [pid 76:tid 140686671193216] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Thu Sep 15 20:56:23.020636 2022] [core:notice] [pid 76:tid 140686671193216] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Thu Sep 15 20:56:33.400528 2022] [ssl:info] [pid 77:tid 140686191970048] [client 172.17.0.1:38610] AH01964: Connection to child 21 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:56:33.404505 2022] [ssl:info] [pid 77:tid 140686191970048] [client 172.17.0.1:38610] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:56:33.404545 2022] [ssl:info] [pid 77:tid 140686191970048] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 20:56:33.404552 2022] [ssl:info] [pid 77:tid 140686191970048] [client 172.17.0.1:38610] AH01998: Connection closed to child 21 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:56:36.730018 2022] [ssl:info] [pid 77:tid 140686183577344] [client 172.17.0.1:38612] AH01964: Connection to child 22 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 20:58:32.905674 2022] [ssl:info] [pid 77:tid 140686583576320] [client 172.17.0.1:38614] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:07:00.859428 2022] [ssl:info] [pid 77:tid 140686485616384] [client 172.17.0.1:38618] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:12:26.527847 2022] [ssl:info] [pid 77:tid 140686452045568] [client 172.17.0.1:38620] AH01964: Connection to child 7 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:12:26.531562 2022] [ssl:info] [pid 77:tid 140686452045568] [client 172.17.0.1:38620] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:12:26.531628 2022] [ssl:info] [pid 77:tid 140686452045568] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 21:12:26.531639 2022] [ssl:info] [pid 77:tid 140686452045568] [client 172.17.0.1:38620] AH01998: Connection closed to child 7 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:12:30.282232 2022] [ssl:info] [pid 77:tid 140686443652864] [client 172.17.0.1:38622] AH01964: Connection to child 8 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.452241 2022] [ssl:info] [pid 77:tid 140686250718976] [client 172.17.0.1:38624] AH01964: Connection to child 14 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.454507 2022] [ssl:info] [pid 77:tid 140686250718976] [client 172.17.0.1:38624] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.454549 2022] [ssl:info] [pid 77:tid 140686250718976] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 21:15:51.454554 2022] [ssl:info] [pid 77:tid 140686250718976] [client 172.17.0.1:38624] AH01998: Connection closed to child 14 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.457074 2022] [ssl:info] [pid 77:tid 140686242326272] [client 172.17.0.1:38626] AH01964: Connection to child 15 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.461055 2022] [ssl:info] [pid 77:tid 140686242326272] [client 172.17.0.1:38626] AH02008: SSL library error 1 in handshake (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:51.461195 2022] [ssl:info] [pid 77:tid 140686242326272] SSL Library Error: error:14094412:SSL routines:ssl3_read_bytes:sslv3 alert bad certificate (SSL alert number 42)
+[Thu Sep 15 21:15:51.461212 2022] [ssl:info] [pid 77:tid 140686242326272] [client 172.17.0.1:38626] AH01998: Connection closed to child 15 with abortive shutdown (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:15:55.048152 2022] [ssl:info] [pid 78:tid 140686583576320] [client 172.17.0.1:38628] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:19:25.815966 2022] [mpm_event:notice] [pid 76:tid 140686671193216] AH00492: caught SIGWINCH, shutting down gracefully
+[Thu Sep 15 21:19:48.190009 2022] [ssl:info] [pid 75:tid 139937017898112] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 21:19:48.190647 2022] [ssl:warn] [pid 75:tid 139937017898112] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 21:19:48.190734 2022] [ssl:info] [pid 75:tid 139937017898112] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 21:19:48.202541 2022] [ssl:info] [pid 75:tid 139937017898112] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Thu Sep 15 21:19:48.203377 2022] [ssl:warn] [pid 75:tid 139937017898112] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Sep 15 21:19:48.203427 2022] [ssl:info] [pid 75:tid 139937017898112] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Thu Sep 15 21:19:48.210034 2022] [mpm_event:notice] [pid 75:tid 139937017898112] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Thu Sep 15 21:19:48.210112 2022] [core:notice] [pid 75:tid 139937017898112] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Thu Sep 15 21:20:13.343505 2022] [ssl:info] [pid 76:tid 139936862820096] [client 172.17.0.1:38630] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:20:23.930040 2022] [ssl:info] [pid 77:tid 139936862820096] [client 172.17.0.1:38632] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:25:05.348073 2022] [ssl:info] [pid 76:tid 139936829249280] [client 172.17.0.1:38634] AH01964: Connection to child 4 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:29:47.402770 2022] [ssl:info] [pid 76:tid 139936317556480] [client 172.17.0.1:38636] AH01964: Connection to child 8 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:38:29.417157 2022] [ssl:info] [pid 76:tid 139936292378368] [client 172.17.0.1:38638] AH01964: Connection to child 11 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:38:57.385322 2022] [ssl:info] [pid 77:tid 139936829249280] [client 172.17.0.1:38640] AH01964: Connection to child 68 established (server sarom.brainyit.com.br:443)
+[Thu Sep 15 21:38:57.602668 2022] [core:info] [pid 77:tid 139936334341888] [client 172.17.0.1:38640] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.sso/Session
+[Fri Sep 16 07:56:38.584106 2022] [ssl:info] [pid 76:tid 140432698242176] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 07:56:38.584376 2022] [ssl:warn] [pid 76:tid 140432698242176] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 07:56:38.584388 2022] [ssl:info] [pid 76:tid 140432698242176] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 07:56:38.594180 2022] [ssl:info] [pid 76:tid 140432698242176] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 07:56:38.594464 2022] [ssl:warn] [pid 76:tid 140432698242176] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 07:56:38.594481 2022] [ssl:info] [pid 76:tid 140432698242176] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 07:56:38.597833 2022] [mpm_event:notice] [pid 76:tid 140432698242176] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 07:56:38.597857 2022] [core:notice] [pid 76:tid 140432698242176] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 07:58:23.287474 2022] [ssl:info] [pid 77:tid 140432537282304] [client 172.17.0.1:55584] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 07:58:23.292155 2022] [core:info] [pid 77:tid 140432537282304] [client 172.17.0.1:55584] AH00128: File does not exist: /var/www/html/Shibboleth.soo/Login
+[Fri Sep 16 07:58:23.501732 2022] [core:info] [pid 77:tid 140432528889600] [client 172.17.0.1:55584] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.soo/Login
+[Fri Sep 16 07:58:57.861187 2022] [ssl:info] [pid 78:tid 140432537282304] [client 172.17.0.1:55586] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 07:59:06.810167 2022] [ssl:info] [pid 77:tid 140432503711488] [client 172.17.0.1:55588] AH01964: Connection to child 4 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 07:59:22.832774 2022] [ssl:info] [pid 78:tid 140432503711488] [client 172.17.0.1:55592] AH01964: Connection to child 68 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 07:59:41.612482 2022] [ssl:info] [pid 78:tid 140432335955712] [client 172.17.0.1:55594] AH01964: Connection to child 71 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 07:59:55.803031 2022] [ssl:info] [pid 77:tid 140432067520256] [client 172.17.0.1:55596] AH01964: Connection to child 7 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:00:48.669405 2022] [ssl:info] [pid 78:tid 140432310777600] [client 172.17.0.1:55600] AH01964: Connection to child 74 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:07:43.019961 2022] [ssl:info] [pid 76:tid 140610710590592] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:07:43.020208 2022] [ssl:warn] [pid 76:tid 140610710590592] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:07:43.020220 2022] [ssl:info] [pid 76:tid 140610710590592] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+AH00112: Warning: DocumentRoot [/var/www/html] does not exist
+[Fri Sep 16 08:07:43.025899 2022] [ssl:info] [pid 76:tid 140610710590592] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:07:43.026099 2022] [ssl:warn] [pid 76:tid 140610710590592] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:07:43.026111 2022] [ssl:info] [pid 76:tid 140610710590592] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:07:43.029731 2022] [mpm_event:notice] [pid 76:tid 140610710590592] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:07:43.029748 2022] [core:notice] [pid 76:tid 140610710590592] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:08:12.495768 2022] [ssl:info] [pid 78:tid 140610622973696] [client 172.17.0.1:55602] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:08:24.458416 2022] [ssl:info] [pid 77:tid 140610622973696] [client 172.17.0.1:55604] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:08:24.462398 2022] [core:info] [pid 77:tid 140610622973696] [client 172.17.0.1:55604] AH00128: File does not exist: /var/www/html/
+[Fri Sep 16 08:08:24.677374 2022] [core:info] [pid 77:tid 140610614572800] [client 172.17.0.1:55604] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/
+[Fri Sep 16 08:08:31.549710 2022] [ssl:info] [pid 78:tid 140610249946880] [client 172.17.0.1:55606] AH01964: Connection to child 68 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:08:31.552985 2022] [authz_core:error] [pid 78:tid 140610249946880] [client 172.17.0.1:55606] AH01629: authorization failure (no authenticated user): /secure
+[Fri Sep 16 08:12:50.170471 2022] [ssl:info] [pid 76:tid 140233746687104] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:12:50.170748 2022] [ssl:warn] [pid 76:tid 140233746687104] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:12:50.170761 2022] [ssl:info] [pid 76:tid 140233746687104] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:12:50.177102 2022] [ssl:info] [pid 76:tid 140233746687104] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:12:50.177311 2022] [ssl:warn] [pid 76:tid 140233746687104] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:12:50.177323 2022] [ssl:info] [pid 76:tid 140233746687104] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:12:50.180462 2022] [mpm_event:notice] [pid 76:tid 140233746687104] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:12:50.180479 2022] [core:notice] [pid 76:tid 140233746687104] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:12:57.256495 2022] [ssl:info] [pid 78:tid 140233659070208] [client 172.17.0.1:55608] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:12:57.263088 2022] [authz_core:error] [pid 78:tid 140233659070208] [client 172.17.0.1:55608] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:12:58.999923 2022] [authz_core:error] [pid 78:tid 140233650669312] [client 172.17.0.1:55608] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:13:46.707757 2022] [ssl:info] [pid 76:tid 140289837843584] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:13:46.708035 2022] [ssl:warn] [pid 76:tid 140289837843584] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:13:46.708045 2022] [ssl:info] [pid 76:tid 140289837843584] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:13:46.714814 2022] [ssl:info] [pid 76:tid 140289837843584] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:13:46.715122 2022] [ssl:warn] [pid 76:tid 140289837843584] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:13:46.715141 2022] [ssl:info] [pid 76:tid 140289837843584] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:13:46.718804 2022] [mpm_event:notice] [pid 76:tid 140289837843584] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:13:46.718821 2022] [core:notice] [pid 76:tid 140289837843584] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:13:48.534081 2022] [ssl:info] [pid 78:tid 140289750226688] [client 172.17.0.1:55610] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:13:48.672885 2022] [core:info] [pid 78:tid 140289536685824] [client 172.17.0.1:55610] AH00128: File does not exist: /var/www/html/sp/favicon.ico, referer: https://sarom.brainyit.com.br:9443/
+[Fri Sep 16 08:13:54.876811 2022] [ssl:info] [pid 77:tid 140289750226688] [client 172.17.0.1:55612] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:14:10.154149 2022] [ssl:info] [pid 78:tid 140289503115008] [client 172.17.0.1:55614] AH01964: Connection to child 70 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:14:10.157554 2022] [authz_core:error] [pid 78:tid 140289503115008] [client 172.17.0.1:55614] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:15:15.158847 2022] [ssl:info] [pid 77:tid 140289536685824] [client 172.17.0.1:55616] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:15:15.160655 2022] [mod_shib:error] [pid 77:tid 140289536685824] [client 172.17.0.1:55616] Shibboleth handler invoked at an unconfigured location.
+[Fri Sep 16 08:15:15.210054 2022] [ssl:info] [pid 77:tid 140289528293120] [client 172.17.0.1:55618] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:15:25.408254 2022] [ssl:info] [pid 78:tid 140289519900416] [client 172.17.0.1:55620] AH01964: Connection to child 68 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:15:25.409606 2022] [mod_shib:error] [pid 78:tid 140289519900416] [client 172.17.0.1:55620] Shibboleth handler invoked at an unconfigured location.
+[Fri Sep 16 08:18:38.507484 2022] [ssl:info] [pid 76:tid 140449426703488] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:18:38.507725 2022] [ssl:warn] [pid 76:tid 140449426703488] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:18:38.507741 2022] [ssl:info] [pid 76:tid 140449426703488] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:18:38.513350 2022] [ssl:info] [pid 76:tid 140449426703488] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:18:38.513530 2022] [ssl:warn] [pid 76:tid 140449426703488] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:18:38.513538 2022] [ssl:info] [pid 76:tid 140449426703488] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:18:38.516234 2022] [mpm_event:notice] [pid 76:tid 140449426703488] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:18:38.516247 2022] [core:notice] [pid 76:tid 140449426703488] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:18:56.315892 2022] [ssl:info] [pid 77:tid 140449339086592] [client 172.17.0.1:55622] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:18:56.523215 2022] [core:info] [pid 77:tid 140449113171712] [client 172.17.0.1:55622] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/
+[Fri Sep 16 08:18:59.727119 2022] [authz_core:error] [pid 77:tid 140449104779008] [client 172.17.0.1:55622] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:22:12.758427 2022] [ssl:info] [pid 77:tid 140449087993600] [client 172.17.0.1:55624] AH01964: Connection to child 6 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:22:27.015906 2022] [ssl:info] [pid 78:tid 140449113171712] [client 172.17.0.1:55626] AH01964: Connection to child 66 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:22:27.019384 2022] [authz_core:error] [pid 78:tid 140449113171712] [client 172.17.0.1:55626] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:22:27.121951 2022] [core:info] [pid 78:tid 140449339086592] [client 172.17.0.1:55626] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp
+[Fri Sep 16 08:24:50.076222 2022] [ssl:info] [pid 76:tid 139874949018752] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:24:50.076495 2022] [ssl:warn] [pid 76:tid 139874949018752] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:24:50.076507 2022] [ssl:info] [pid 76:tid 139874949018752] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:24:50.081902 2022] [ssl:info] [pid 76:tid 139874949018752] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:24:50.082089 2022] [ssl:warn] [pid 76:tid 139874949018752] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:24:50.082099 2022] [ssl:info] [pid 76:tid 139874949018752] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:24:50.084915 2022] [mpm_event:notice] [pid 76:tid 139874949018752] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:24:50.084928 2022] [core:notice] [pid 76:tid 139874949018752] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:25:37.783434 2022] [ssl:info] [pid 76:tid 140465191310464] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:25:37.783684 2022] [ssl:warn] [pid 76:tid 140465191310464] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:25:37.783701 2022] [ssl:info] [pid 76:tid 140465191310464] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:25:37.788818 2022] [ssl:info] [pid 76:tid 140465191310464] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:25:37.788995 2022] [ssl:warn] [pid 76:tid 140465191310464] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:25:37.789003 2022] [ssl:info] [pid 76:tid 140465191310464] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:25:37.791680 2022] [mpm_event:notice] [pid 76:tid 140465191310464] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:25:37.791695 2022] [core:notice] [pid 76:tid 140465191310464] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:25:47.674358 2022] [ssl:info] [pid 77:tid 140465103693568] [client 172.17.0.1:55630] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:26:19.159210 2022] [ssl:info] [pid 77:tid 140464875362048] [client 172.17.0.1:55632] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:26:19.197363 2022] [mod_shib:info] [pid 77:tid 140464858576640] [client 172.17.0.1:55632] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:26:19.197578 2022] [mod_shib:info] [pid 77:tid 140464858576640] [client 172.17.0.1:55632] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:26:19.197740 2022] [mod_shib:info] [pid 77:tid 140464858576640] [client 172.17.0.1:55632] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:26:19.197905 2022] [mod_shib:info] [pid 77:tid 140464858576640] [client 172.17.0.1:55632] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:26:19.301114 2022] [core:info] [pid 77:tid 140464850183936] [client 172.17.0.1:55632] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 08:31:18.093435 2022] [ssl:info] [pid 76:tid 140286535398528] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:31:18.093699 2022] [ssl:warn] [pid 76:tid 140286535398528] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:31:18.093713 2022] [ssl:info] [pid 76:tid 140286535398528] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:31:18.100065 2022] [ssl:info] [pid 76:tid 140286535398528] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:31:18.100259 2022] [ssl:warn] [pid 76:tid 140286535398528] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:31:18.100269 2022] [ssl:info] [pid 76:tid 140286535398528] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:31:18.103335 2022] [mpm_event:notice] [pid 76:tid 140286535398528] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:31:18.103353 2022] [core:notice] [pid 76:tid 140286535398528] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:31:54.848997 2022] [ssl:info] [pid 77:tid 140286374176512] [client 172.17.0.1:55634] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:31:54.853153 2022] [authz_core:error] [pid 77:tid 140286374176512] [client 172.17.0.1:55634] AH01629: authorization failure (no authenticated user): /sp
+[Fri Sep 16 08:31:55.062525 2022] [core:info] [pid 77:tid 140286365783808] [client 172.17.0.1:55634] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp
+[Fri Sep 16 08:32:20.142985 2022] [ssl:info] [pid 76:tid 140032274023552] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:32:20.143229 2022] [ssl:warn] [pid 76:tid 140032274023552] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:32:20.143240 2022] [ssl:info] [pid 76:tid 140032274023552] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:32:20.148926 2022] [ssl:info] [pid 76:tid 140032274023552] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:32:20.149099 2022] [ssl:warn] [pid 76:tid 140032274023552] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:32:20.149108 2022] [ssl:info] [pid 76:tid 140032274023552] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:32:20.151794 2022] [mpm_event:notice] [pid 76:tid 140032274023552] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:32:20.151805 2022] [core:notice] [pid 76:tid 140032274023552] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:32:22.452196 2022] [ssl:info] [pid 78:tid 140031964473088] [client 172.17.0.1:55636] AH01964: Connection to child 66 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:32:33.454235 2022] [ssl:info] [pid 78:tid 140031956080384] [client 172.17.0.1:55638] AH01964: Connection to child 67 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:32:33.480298 2022] [mod_shib:info] [pid 78:tid 140031922509568] [client 172.17.0.1:55638] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:32:33.480549 2022] [mod_shib:info] [pid 78:tid 140031922509568] [client 172.17.0.1:55638] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:32:33.480740 2022] [mod_shib:info] [pid 78:tid 140031922509568] [client 172.17.0.1:55638] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:32:33.480869 2022] [mod_shib:info] [pid 78:tid 140031922509568] [client 172.17.0.1:55638] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:36:21.640384 2022] [ssl:info] [pid 76:tid 139751464268928] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:36:21.640662 2022] [ssl:warn] [pid 76:tid 139751464268928] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:36:21.640673 2022] [ssl:info] [pid 76:tid 139751464268928] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:36:21.645985 2022] [ssl:info] [pid 76:tid 139751464268928] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:36:21.646188 2022] [ssl:warn] [pid 76:tid 139751464268928] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:36:21.646196 2022] [ssl:info] [pid 76:tid 139751464268928] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:36:21.649593 2022] [mpm_event:notice] [pid 76:tid 139751464268928] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:36:21.649612 2022] [core:notice] [pid 76:tid 139751464268928] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:36:35.560619 2022] [ssl:info] [pid 78:tid 139751306811136] [client 172.17.0.1:55640] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:36:49.788280 2022] [ssl:info] [pid 77:tid 139751298418432] [client 172.17.0.1:55642] AH01964: Connection to child 1 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:36:49.803710 2022] [mod_shib:info] [pid 77:tid 139751306811136] [client 172.17.0.1:55642] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:36:49.803887 2022] [mod_shib:info] [pid 77:tid 139751306811136] [client 172.17.0.1:55642] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:36:49.803991 2022] [mod_shib:info] [pid 77:tid 139751306811136] [client 172.17.0.1:55642] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:36:49.804085 2022] [mod_shib:info] [pid 77:tid 139751306811136] [client 172.17.0.1:55642] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:36:49.897729 2022] [core:info] [pid 77:tid 139751290025728] [client 172.17.0.1:55642] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 08:37:40.738805 2022] [ssl:info] [pid 76:tid 139746734339200] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:37:40.739045 2022] [ssl:warn] [pid 76:tid 139746734339200] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:37:40.739055 2022] [ssl:info] [pid 76:tid 139746734339200] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:37:40.744014 2022] [ssl:info] [pid 76:tid 139746734339200] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:37:40.744185 2022] [ssl:warn] [pid 76:tid 139746734339200] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:37:40.744195 2022] [ssl:info] [pid 76:tid 139746734339200] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:37:40.747514 2022] [mpm_event:notice] [pid 76:tid 139746734339200] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:37:40.747528 2022] [core:notice] [pid 76:tid 139746734339200] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:37:44.622208 2022] [ssl:info] [pid 78:tid 139746638321408] [client 172.17.0.1:55644] AH01964: Connection to child 65 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:37:54.698698 2022] [ssl:info] [pid 77:tid 139746646722304] [client 172.17.0.1:55646] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:37:54.716552 2022] [mod_shib:info] [pid 77:tid 139746638321408] [client 172.17.0.1:55646] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:37:54.716746 2022] [mod_shib:info] [pid 77:tid 139746638321408] [client 172.17.0.1:55646] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:37:54.716869 2022] [mod_shib:info] [pid 77:tid 139746638321408] [client 172.17.0.1:55646] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:37:54.716982 2022] [mod_shib:info] [pid 77:tid 139746638321408] [client 172.17.0.1:55646] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:43:19.600666 2022] [ssl:info] [pid 76:tid 140297326953600] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:43:19.600918 2022] [ssl:warn] [pid 76:tid 140297326953600] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:43:19.600929 2022] [ssl:info] [pid 76:tid 140297326953600] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:43:19.606535 2022] [ssl:info] [pid 76:tid 140297326953600] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:43:19.606728 2022] [ssl:warn] [pid 76:tid 140297326953600] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:43:19.606741 2022] [ssl:info] [pid 76:tid 140297326953600] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:43:19.610403 2022] [mpm_event:notice] [pid 76:tid 140297326953600] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:43:19.610423 2022] [core:notice] [pid 76:tid 140297326953600] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:43:38.945906 2022] [ssl:info] [pid 78:tid 140297170310912] [client 172.17.0.1:55648] AH01964: Connection to child 64 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:43:50.077261 2022] [ssl:info] [pid 77:tid 140297170310912] [client 172.17.0.1:55650] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:43:50.094530 2022] [mod_shib:info] [pid 77:tid 140297161918208] [client 172.17.0.1:55650] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:43:50.094874 2022] [mod_shib:info] [pid 77:tid 140297161918208] [client 172.17.0.1:55650] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:43:50.095163 2022] [mod_shib:info] [pid 77:tid 140297161918208] [client 172.17.0.1:55650] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:43:50.095350 2022] [mod_shib:info] [pid 77:tid 140297161918208] [client 172.17.0.1:55650] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:43:50.189726 2022] [core:info] [pid 77:tid 140297153525504] [client 172.17.0.1:55650] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 08:51:07.777989 2022] [ssl:info] [pid 76:tid 140251852498048] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:51:07.778242 2022] [ssl:warn] [pid 76:tid 140251852498048] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:51:07.778253 2022] [ssl:info] [pid 76:tid 140251852498048] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:51:07.783400 2022] [ssl:info] [pid 76:tid 140251852498048] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:51:07.783577 2022] [ssl:warn] [pid 76:tid 140251852498048] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:51:07.783587 2022] [ssl:info] [pid 76:tid 140251852498048] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:51:07.786394 2022] [mpm_event:notice] [pid 76:tid 140251852498048] AH00489: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Fri Sep 16 08:51:07.786408 2022] [core:notice] [pid 76:tid 140251852498048] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:52:13.987641 2022] [mpm_event:notice] [pid 76:tid 140251852498048] AH00491: caught SIGTERM, shutting down
+[Fri Sep 16 08:56:32.482951 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:56:32.483328 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:56:32.483340 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:56:32.499125 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 08:56:32.499356 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 08:56:32.499366 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 08:56:32.504137 2022] [mpm_prefork:notice] [pid 48] AH00163: Apache/2.4.54 (Debian) OpenSSL/1.1.1n configured -- resuming normal operations
+[Fri Sep 16 08:56:32.504166 2022] [core:notice] [pid 48] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 08:56:58.170106 2022] [ssl:info] [pid 50] [client 172.17.0.1:55652] AH01964: Connection to child 1 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:57:08.716813 2022] [ssl:info] [pid 52] [client 172.17.0.1:55654] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:57:08.740099 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55654] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:57:08.740359 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55654] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:57:08.740486 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55654] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:57:08.740615 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55654] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:57:08.741252 2022] [php7:error] [pid 52] [client 172.17.0.1:55654] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /var/www/html/sp/index.php on line 22, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 08:57:08.837439 2022] [ssl:info] [pid 56] [client 172.17.0.1:55656] AH01964: Connection to child 4 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:57:08.838977 2022] [core:info] [pid 56] [client 172.17.0.1:55656] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 08:57:25.818879 2022] [ssl:info] [pid 49] [client 172.17.0.1:55658] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:57:25.823745 2022] [mod_shib:info] [pid 49] [client 172.17.0.1:55658] shib_check_user found no per-request structure
+[Fri Sep 16 08:57:25.824002 2022] [mod_shib:info] [pid 49] [client 172.17.0.1:55658] shib_check_user found no per-request structure
+[Fri Sep 16 08:57:25.824175 2022] [mod_shib:info] [pid 49] [client 172.17.0.1:55658] shib_check_user found no per-request structure
+[Fri Sep 16 08:57:25.824320 2022] [mod_shib:info] [pid 49] [client 172.17.0.1:55658] shib_check_user found no per-request structure
+[Fri Sep 16 08:57:25.824871 2022] [php7:error] [pid 49] [client 172.17.0.1:55658] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /var/www/html/sp/index.php on line 22
+[Fri Sep 16 08:58:42.537592 2022] [ssl:info] [pid 54] [client 172.17.0.1:55660] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:58:51.487567 2022] [ssl:info] [pid 65] [client 172.17.0.1:55662] AH01964: Connection to child 5 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 08:58:51.591324 2022] [core:info] [pid 65] [client 172.17.0.1:55662] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/Shibboleth.sso/Session
+[Fri Sep 16 09:00:13.069057 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:00:13.069362 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:00:13.069373 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:00:13.080230 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:00:13.080452 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:00:13.080462 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:00:13.084881 2022] [mpm_prefork:notice] [pid 48] AH00163: Apache/2.4.54 (Debian) OpenSSL/1.1.1n configured -- resuming normal operations
+[Fri Sep 16 09:00:13.084906 2022] [core:notice] [pid 48] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 09:00:22.928997 2022] [ssl:info] [pid 49] [client 172.17.0.1:55664] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:00:33.635876 2022] [ssl:info] [pid 52] [client 172.17.0.1:55666] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:00:33.652699 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55666] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:00:33.652919 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55666] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:00:33.653174 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55666] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:00:33.653380 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55666] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:00:33.653972 2022] [php7:error] [pid 52] [client 172.17.0.1:55666] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /var/www/html/sp/index.php on line 15, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:00:33.748629 2022] [ssl:info] [pid 54] [client 172.17.0.1:55668] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:00:33.749841 2022] [core:info] [pid 54] [client 172.17.0.1:55668] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 09:01:29.643675 2022] [mpm_prefork:notice] [pid 48] AH00170: caught SIGWINCH, shutting down gracefully
+[Fri Sep 16 09:02:46.874484 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:02:46.874789 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:02:46.874799 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:02:46.889403 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:02:46.889627 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:02:46.889636 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:02:46.894127 2022] [mpm_prefork:notice] [pid 48] AH00163: Apache/2.4.54 (Debian) OpenSSL/1.1.1n configured -- resuming normal operations
+[Fri Sep 16 09:02:46.894161 2022] [core:notice] [pid 48] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 09:02:58.834603 2022] [ssl:info] [pid 49] [client 172.17.0.1:55670] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:03:09.511864 2022] [ssl:info] [pid 52] [client 172.17.0.1:55672] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:03:09.530663 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55672] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:03:09.530929 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55672] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:03:09.531061 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55672] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:03:09.531171 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55672] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:03:09.531611 2022] [php7:error] [pid 52] [client 172.17.0.1:55672] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /var/www/html/sp/index.php on line 23, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:03:09.629277 2022] [ssl:info] [pid 54] [client 172.17.0.1:55674] AH01964: Connection to child 3 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:03:09.630492 2022] [core:info] [pid 54] [client 172.17.0.1:55674] AH00128: File does not exist: /var/www/html/favicon.ico, referer: https://sarom.brainyit.com.br:9443/sp/
+[Fri Sep 16 09:04:07.730867 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:04:07.731176 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:04:07.731186 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:04:07.741836 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:04:07.742057 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:04:07.742068 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:04:07.746699 2022] [mpm_prefork:notice] [pid 48] AH00163: Apache/2.4.54 (Debian) OpenSSL/1.1.1n configured -- resuming normal operations
+[Fri Sep 16 09:04:07.746722 2022] [core:notice] [pid 48] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 09:04:09.576924 2022] [ssl:info] [pid 49] [client 172.17.0.1:55676] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:04:19.696028 2022] [ssl:info] [pid 52] [client 172.17.0.1:55678] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:04:19.713854 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55678] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:04:19.714190 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55678] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:04:19.714313 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55678] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:04:19.714421 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55678] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:04:46.863916 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:04:46.864229 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:04:46.864240 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:04:46.874699 2022] [ssl:info] [pid 48] AH01914: Configuring server sarom.brainyit.com.br:443 for SSL protocol
+[Fri Sep 16 09:04:46.874899 2022] [ssl:warn] [pid 48] AH01906: sarom.brainyit.com.br:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Sep 16 09:04:46.874907 2022] [ssl:info] [pid 48] AH02568: Certificate and private key sarom.brainyit.com.br:443:0 configured from /etc/ssl/certs/sp-cert.pem and /etc/ssl/certs/sp-key.pem
+[Fri Sep 16 09:04:46.879255 2022] [mpm_prefork:notice] [pid 48] AH00163: Apache/2.4.54 (Debian) OpenSSL/1.1.1n configured -- resuming normal operations
+[Fri Sep 16 09:04:46.879278 2022] [core:notice] [pid 48] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Sep 16 09:04:51.583853 2022] [ssl:info] [pid 49] [client 172.17.0.1:55680] AH01964: Connection to child 0 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:05:01.391866 2022] [ssl:info] [pid 52] [client 172.17.0.1:55682] AH01964: Connection to child 2 established (server sarom.brainyit.com.br:443)
+[Fri Sep 16 09:05:01.416534 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55682] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:05:01.416783 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55682] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:05:01.416965 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55682] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/
+[Fri Sep 16 09:05:01.417086 2022] [mod_shib:info] [pid 52] [client 172.17.0.1:55682] shib_check_user found no per-request structure, referer: https://idp.brainyit.com.br/

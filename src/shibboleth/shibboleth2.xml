@@ -13,8 +13,8 @@
     -->
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
-    <ApplicationDefaults entityID="https://yourhost.example.org/shibboleth"
-                         homeURL="https://yourhost.example.org/Shibboleth.sso/Session"
+    <ApplicationDefaults entityID="https://sarom.brainyit.com.br:9443/shibboleth"
+                         homeURL="https://sarom.brainyit.com.br:9443/Shibboleth.sso/Session"
                          REMOTE_USER="Shib-eduPerson-eduPersonPrincipalName Shib-Attr-eppn eppn persistent-id uniqueID"
                          cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 	
@@ -23,7 +23,7 @@
         <Sessions lifetime="28800" timeout="3600" relayState="ss:mem"
                   checkAddress="false" handlerSSL="true" cookieProps="https">
 
-            <SSO discoveryProtocol="SAMLDS" discoveryURL="https://ds.cafeexpresso.rnp.br/WAYF.php">
+            <SSO entityID="https://idp.brainyit.com.br/idp/shibboleth">
               SAML2
             </SSO>
 
@@ -51,7 +51,8 @@
             <Handler type="Status" Location="/Status"/>
 
             <!-- Session diagnostic service. -->
-            <Handler type="Session" Location="/Session" showAttributeValues="false"/>
+            <!-- Apresenta claramente os dados, ideal é colocar false ou não apresentar-->
+            <Handler type="Session" Location="/Session" showAttributeValues="true"/>
 
             <!-- JSON feed of discovery information. -->
             <Handler type="DiscoveryFeed" Location="/DiscoFeed"/>
@@ -66,11 +67,13 @@
             helpLocation="/about.html"
             styleSheet="/shibboleth-sp/main.css"/>
 
+    <!--
 	<MetadataProvider type="XML" validate="true"
-		url="https://ds.cafeexpresso.rnp.br/metadata/ds-metadata.xml"
-		backingFilePath="ds-metadata.xml"
+		url="https://idp.brainyit.com.br/idp/shibboleth"
+		backingFilePath="idp-metadata.xml"
 		reloadInterval="3600"
-	       	maxRefreshDelay="7200"/>
+	       	maxRefreshDelay="7200"/> -->
+    <MetadataProvider type="XML" validate="true" path="idp-metadata.xml"/>
 
 	<!-- Map to extract attributes from SAML assertions. -->
          <AttributeExtractor type="XML"

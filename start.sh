@@ -1,9 +1,13 @@
-docker run -d -p 80:80 -p 443:443 --rm --name shib-sp \
+docker run -d -p 90:80 -p 9443:443 --rm --name shib-sp \
 --env-file $PWD/.env \
 --volume $PWD/src/apache2/ssl/:/etc/ssl/certs/ \
 --volume $PWD/src/shibboleth/shibboleth2.xml:/etc/shibboleth/shibboleth2.xml \
 --volume $PWD/src/shibboleth/attribute-map.xml:/etc/shibboleth/attribute-map.xml \
+--volume $PWD/src/shibboleth/sp-cert.pem:/etc/shibboleth/sp-cert.pem \
+--volume $PWD/src/shibboleth/sp-key.pem:/etc/shibboleth/sp-key.pem \
+--volume $PWD/src/shibboleth/idp-metadata.xml:/etc/shibboleth/idp-metadata.xml \
 --volume $PWD/src/apache2/shib_ssl.conf:/etc/apache2/sites-available/default-ssl.conf \
+--volume $PWD/src/app/:/var/www/html/sp/ \
 --volume $PWD/log/apache2:/var/log/apache2 \
 --volume $PWD/log/shibboleth:/var/log/shibboleth/ \
--i -t gidlab/shib-sp:1.0.3
+-i -t shib-sp:1.0

@@ -1,0 +1,71 @@
+2022-09-15 20:18:55 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:18:55 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 20:18:55 ERROR OpenSAML.MetadataProvider.XML : metadata instance was invalid at time of acquisition
+2022-09-15 20:18:55 WARN OpenSAML.MetadataProvider.XML : adjusted reload interval to 600 seconds
+2022-09-15 20:18:55 WARN OpenSAML.MetadataProvider.XML : trying backup file, exception loading remote resource: Metadata instance was invalid at time of acquisition.
+2022-09-15 20:18:55 ERROR XMLTooling.ParserPool : fatal error on line 0, column 0, message: unable to open primary document entity '/var/cache/shibboleth/idp-metadata.xml'
+2022-09-15 20:18:55 ERROR OpenSAML.MetadataProvider.XML : error while loading resource (/var/cache/shibboleth/idp-metadata.xml): XML error(s) during parsing, check log for specifics
+2022-09-15 20:18:55 CRIT Shibboleth.Application : error initializing MetadataProvider: XML error(s) during parsing, check log for specifics
+2022-09-15 20:24:31 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:24:31 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 20:24:31 ERROR OpenSAML.MetadataProvider.XML : metadata instance was invalid at time of acquisition
+2022-09-15 20:24:31 WARN OpenSAML.MetadataProvider.XML : adjusted reload interval to 600 seconds
+2022-09-15 20:24:31 WARN OpenSAML.MetadataProvider.XML : trying backup file, exception loading remote resource: Metadata instance was invalid at time of acquisition.
+2022-09-15 20:24:31 ERROR XMLTooling.ParserPool : fatal error on line 0, column 0, message: unable to open primary document entity '/var/cache/shibboleth/idp-metadata.xml'
+2022-09-15 20:24:31 ERROR OpenSAML.MetadataProvider.XML : error while loading resource (/var/cache/shibboleth/idp-metadata.xml): XML error(s) during parsing, check log for specifics
+2022-09-15 20:24:31 CRIT Shibboleth.Application : error initializing MetadataProvider: XML error(s) during parsing, check log for specifics
+2022-09-15 20:25:38 WARN Shibboleth.SessionInitiator.SAML2 [1] [default]: unable to locate metadata for provider (https://idp.brainyit.com.br/idp/shibboleth)
+2022-09-15 20:28:08 WARN Shibboleth.SessionInitiator.SAML2 [1] [default]: unable to locate metadata for provider (https://idp.brainyit.com.br/idp/shibboleth)
+2022-09-15 20:34:31 ERROR OpenSAML.MetadataProvider.XML : metadata instance was invalid at time of acquisition
+2022-09-15 20:34:31 WARN OpenSAML.MetadataProvider.XML : adjusted reload interval to 1200 seconds
+2022-09-15 20:34:31 WARN OpenSAML.MetadataProvider.XML : trying backup file, exception loading remote resource: Metadata instance was invalid at time of acquisition.
+2022-09-15 20:34:31 ERROR OpenSAML.MetadataProvider.XML : metadata instance was invalid at time of acquisition
+2022-09-15 20:34:31 CRIT OpenSAML.MetadataProvider.XML : maintaining existing configuration, error reloading resource (https://idp.brainyit.com.br/idp/shibboleth): Metadata instance was invalid at time of acquisition.
+2022-09-15 20:40:25 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:40:25 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 20:42:31 WARN Shibboleth.SessionInitiator.SAML2 [1] [default]: unable to locate metadata for provider (https://idp.brainyit.com.br/idp/shibboleth)
+2022-09-15 20:44:51 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:44:51 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 20:46:51 WARN Shibboleth.SessionInitiator.SAML2 [1] [default]: unable to locate metadata for provider (https://idp.brainyit.com.br/idp/shibboleth)
+2022-09-15 20:53:09 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:53:09 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 20:56:22 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 20:56:22 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-15 21:19:48 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-15 21:19:48 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 07:56:38 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 07:56:38 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:07:42 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:07:42 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:12:50 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:12:50 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:13:46 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:13:46 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:18:38 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:18:38 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:24:50 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:24:50 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:25:37 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:25:37 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:31:18 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:31:18 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:32:20 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:32:20 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:36:21 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:36:21 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:37:40 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:37:40 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:43:19 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:43:19 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:51:07 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:51:07 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 08:56:32 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 08:56:32 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 09:00:13 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 09:00:13 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 09:02:46 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 09:02:46 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 09:04:07 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 09:04:07 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
+2022-09-16 09:04:46 CRIT XMLTooling.Logging : error in file permissions or logging configuration: File /etc/shibboleth/syslog.logger does not exist
+2022-09-16 09:04:46 CRIT Shibboleth.Config : failed to load new logging configuration from (syslog.logger)
